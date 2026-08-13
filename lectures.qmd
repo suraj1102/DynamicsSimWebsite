@@ -1,0 +1,59 @@
+---
+title: "Lectures"
+subtitle: "Recorded lectures and student lecture notes"
+---
+
+Every row links to the recorded lecture video and to whichever sets of student
+lecture notes cover that lecture. Use the search box to filter by topic, and
+click a column header to sort.
+
+```{python}
+#| echo: false
+import sys
+sys.path.insert(0, "scripts")
+
+import pandas as pd
+import coursesite as S
+
+lectures = S.load("lectures")
+meta = S.load("meta")
+
+df = pd.DataFrame(
+    [
+        {
+            "Lec": lec["lec_no"],
+            "Lecture": lec["name"],
+            "Video": S.video_cell(lec["videos"]),
+            "Notes": S.notes_cell(lec["notes"], meta["notes_sets"]),
+        }
+        for lec in lectures
+    ]
+)
+
+S.show_table(
+    df,
+    columnDefs=[
+        {"width": "3rem", "targets": 0},
+        {"width": "34%", "targets": 1},
+        {"orderable": False, "targets": [2, 3]},
+    ],
+)
+```
+
+::: {.callout-note collapse="true"}
+## About these materials
+
+Videos are the Cornell recordings of **MAE 4730/5730**. The note sets are
+student-taken notes from different offerings, so they cover different subsets
+of the syllabus — a lecture may have notes from one set, both, or neither.
+
+```{python}
+#| echo: false
+#| output: asis
+lines = []
+for label in meta["notes_sets"]:
+    n = sum(1 for lec in lectures for x in lec["notes"] if x["set"] == label)
+    lines.append(f"- **{S.short_set_name(label)}** — `{label}` ({n} lecture links)")
+print("\n".join(lines))
+```
+:::

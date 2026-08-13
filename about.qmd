@@ -2,4 +2,111 @@
 title: "About"
 ---
 
-About this site
+This is the course site for **Dynamics & Simulation** (AKA Intermediate
+Dynamics, ME 4730/5730), taught by [Prof. Andy Ruina](https://ruina.org) at
+Plaksha University, reusing the Cornell lecture recordings.
+
+The site is a static [Quarto](https://quarto.org) website. Everything on the
+Lectures and Homework pages is generated at build time from a single
+spreadsheet plus the folders of PDFs — there is no database and no backend.
+
+## How to update this site
+
+Adding a year of videos, a new set of lecture notes, or a new set of solutions
+is a **spreadsheet + folder** change. It should never need a code change.
+
+### 1. Edit `Dynamics&Sim-MasterSheet.xlsx`
+
+This file is the source of truth. Two sheets:
+
+**`Lectures`** — one row per lecture.
+
+| Column | What it does |
+|---|---|
+| `Lec No.`, `Name of Lecture` | Fixed identity columns. |
+| `Link (YYYY)` | A set of video links. The label shown on the site is whatever is inside the parentheses. Add a whole new year by adding a new column, e.g. `Link (2027)`. A cell may hold more than one URL. |
+| Any other column | A **notes set**. The header must match a folder name under `Notes/` exactly. Each cell holds the note number(s) covering that lecture. |
+
+Notes cells accept `7`, `16, 17`, or `03, 04 -> some commentary` (the trailing
+commentary becomes a tooltip). Leave a cell blank for "no notes".
+
+**`Homeworks`** — one row per problem.
+
+| Column | What it does |
+|---|---|
+| `Homework No. (Plaksha Doc)` | Fixed identity column. Must match the problem numbering inside the combined homework PDF. |
+| `Done Last Time (...)` | Usage history — `y` or `n`. Add another column, e.g. `Done Last Time (2027 Plaksha)`, to track another offering. |
+| Any other column | A **solutions set**. The header must match a folder name under `Homework/` exactly. Each cell holds the solution code, e.g. `Q01`. |
+
+::: {.callout-important}
+Excel sometimes autocorrects an entry like `9, 10` into a date. If it does,
+format the cell as **Text** and retype the value — otherwise the build will
+warn and skip that cell.
+:::
+
+### 2. Add the matching folder
+
+For a new notes or solutions set, create a folder under `Notes/` or
+`Homework/` **named exactly like the new column header**, and drop the files
+in it.
+
+- **Notes files** are matched by their leading number: `7. Whatever.pdf`,
+  `07 Whatever.pdf` and `Lecture 07 Whatever.pdf` all resolve to note 7. One
+  file can cover several notes (`Lecture 09 10 ....pdf`).
+- **Solution files** are matched by their code prefix: `Q01...pdf`. A solution
+  may live in a same-named subfolder alongside supporting `.m`/`.png` files,
+  which get listed with it.
+- A filename or folder containing any of the keywords below is flagged with a
+  ⚠ "not instructor-reviewed" badge. Punctuation and capitalisation are
+  ignored when matching, so `Not Approved` and `NotApproved` both count. Edit
+  `UNAPPROVED_KEYWORDS` at the top of `scripts/build_data.py` to change the
+  list — this page reads it from there, so it cannot go stale:
+
+```{python}
+#| echo: false
+#| output: asis
+import sys
+sys.path.insert(0, "scripts")
+from build_data import UNAPPROVED_KEYWORDS
+
+print("  " + ", ".join(f"`{k}`" for k in UNAPPROVED_KEYWORDS))
+```
+- Anything left over in a solutions folder that no row references is still
+  published, under "Other materials" on the Homework page.
+
+### 3. Render locally to check
+
+```bash
+pip install -r requirements.txt
+quarto render
+```
+
+The pre-render step regenerates `_data/` and prints warnings for anything it
+could not resolve — an unparseable cell, a missing note file, a solution code
+with no matching PDF. Read those warnings; they are how you catch typos.
+
+Use `quarto preview` for a live-reloading local copy.
+
+### 4. Commit and push
+
+```bash
+git add -A && git commit -m "Update course materials" && git push
+```
+
+GitHub Actions rebuilds and redeploys the site automatically on every push to
+`main`.
+
+## How it fits together
+
+- `scripts/build_data.py` — pre-render step. Reads the spreadsheet, scans
+  `Notes/` and `Homework/`, resolves every reference to a real file, works out
+  which page of the combined PDF each problem starts on, and writes JSON into
+  `_data/`.
+- `scripts/coursesite.py` — small helpers the pages use to turn that JSON into
+  links and badges.
+- `lectures.qmd` / `homework.qmd` — read the JSON and render it with
+  [itables](https://mwouts.github.io/itables/), which gives client-side
+  sorting, searching and paging on a fully static page.
+- `_data/` and `files/` are generated on every render and are not checked in.
+
+The site is intentionally public — there is no login.

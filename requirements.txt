@@ -1,0 +1,8 @@
+# Build dependencies for the Quarto site.
+#   scripts/build_data.py  -> openpyxl, pypdf
+#   lectures.qmd/homework.qmd -> pandas, itables (rendered by the Jupyter engine)
+openpyxl>=3.1
+pandas>=2.0
+itables>=2.1
+pypdf>=4.0
+jupyter>=1.0

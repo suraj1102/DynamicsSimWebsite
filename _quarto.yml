@@ -1,21 +1,45 @@
 project:
   type: website
+  pre-render: scripts/build_data.py
+  # Everything is a page except CourseOutline.md, which is prose included into
+  # outline.qmd rather than a page of its own.
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!CourseOutline.md"
+  # Declared explicitly: these are linked only from JSON-driven itables cells,
+  # which Quarto's link scanner cannot see. Without this they 404 in production.
+  resources:
+    - Notes/
+    - Homework/
+    - files/
+    - robots.txt
+    # LaTeX sources and build assets are never linked from the site.
+    - "!Homework/HomeworkAssignments/HomeworkFigs/**"
+    - "!**/*.tex"
+    - "!**/*.synctex.gz"
 
 website:
-  title: "DynamicsWebsite"
+  title: "Dynamics & Simulation"
+  description: "Course site for Dynamics & Simulation (Intermediate Dynamics, ME 4730/5730) — lectures, notes, homework and solutions."
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: outline.qmd
+        text: Course Outline
+      - href: lectures.qmd
+        text: Lectures
+      - href: homework.qmd
+        text: Homework
+      - href: about.qmd
+        text: About
+  page-footer:
+    center: "Dynamics & Simulation · Prof. Andy Ruina · Plaksha University"
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
     toc: true
-
-
-
+    link-external-newwindow: true

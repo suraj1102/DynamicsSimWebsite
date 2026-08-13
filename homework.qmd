@@ -1,0 +1,98 @@
+---
+title: "Homework"
+subtitle: "Problems, solutions and the grading policy"
+---
+
+```{python}
+#| echo: false
+import sys
+sys.path.insert(0, "scripts")
+
+import pandas as pd
+import coursesite as S
+
+homeworks = S.load("homeworks")
+other = S.load("other_materials")
+meta = S.load("meta")
+```
+
+All problems live in a single combined problem set — the **Problem** link opens
+that PDF at the right page. Solutions, where a set exists for a problem, are
+linked alongside. A ⚠ marks a solution that has **not** been reviewed by the
+instructor: use it as a hint, not as a model answer.
+
+```{python}
+#| echo: false
+df = pd.DataFrame(
+    [
+        {
+            "No.": hw["hw_no"],
+            "Problem": S.problem_cell(hw["problem_link"], hw["hw_no"]),
+            "Assigned": S.usage_cell(hw["usage"]),
+            "Solutions": S.solutions_cell(hw["solutions"], meta["solution_sets"]),
+        }
+        for hw in homeworks
+    ]
+)
+
+S.show_table(
+    df,
+    columnDefs=[
+        {"width": "3rem", "targets": 0},
+        {"orderable": False, "targets": [1, 2, 3]},
+    ],
+)
+```
+
+```{python}
+#| echo: false
+#| output: asis
+missing = [h["hw_no"] for h in homeworks if not h["problem_link"]["matched"]]
+if missing:
+    nums = ", ".join(str(n) for n in missing)
+    print(
+        "::: {.callout-warning}\n"
+        f"Problems {nums} could not be located to a specific page, so their "
+        "links open the combined problem set at page 1.\n:::"
+    )
+```
+
+## Homework policy
+
+```{python}
+#| echo: false
+#| output: asis
+policy = S.href(meta["policy_pdf"])
+print(f"""
+<p><a class="pill pill-problem" href="{policy}" target="_blank" rel="noopener">Download the policy (PDF)</a></p>
+<div class="pdf-embed">
+  <object data="{policy}" type="application/pdf" width="100%" height="700">
+    <p>Your browser cannot display embedded PDFs.
+       <a href="{policy}">Open the homework policy</a> instead.</p>
+  </object>
+</div>
+""")
+```
+
+## Other materials in the solution sets
+
+These files sit in the solution folders but are not referenced by any problem
+number in the master sheet — old exam questions, extra write-ups and the like.
+They are listed here so nothing gets lost.
+
+```{python}
+#| echo: false
+#| output: asis
+blocks = []
+for label, items in other.items():
+    if not items:
+        continue
+    blocks.append(f"**{label}** — {len(items)} file(s)\n")
+    lis = []
+    for it in items:
+        warn = ' <span class="warn" title="Not instructor-reviewed">⚠</span>' if not it["approved"] else ""
+        sub = f' <span class="muted">({it["subfolder"]})</span>' if it["subfolder"] else ""
+        lis.append(f'<li>{S.link(it["file"], it["name"])}{warn}{sub}</li>')
+    blocks.append('<ul class="other-materials">' + "".join(lis) + "</ul>\n")
+print("\n".join(blocks) if blocks else "_Nothing unmapped — every file is linked from the table above._")
+```

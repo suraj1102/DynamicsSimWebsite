@@ -1,0 +1,11 @@
+---
+title: "Course Outline"
+---
+
+{{< include CourseOutline.md >}}
+
+## Lecture schedule
+
+The lecture list is maintained live on the [Lectures](lectures.qmd) page, along
+with the recording and lecture-note links for each one. Students are expected to
+watch at least two lectures per week.

@@ -1,7 +1,64 @@
 ---
-title: "DynamicsWebsite"
+title: "Dynamics & Simulation"
+subtitle: "AKA Intermediate Dynamics — ME 4730/5730"
+toc: false
 ---
 
-This is a Quarto website.
+Welcome. This site collects everything you need for the course: the lecture
+recordings, student lecture notes, the homework problem set, and the solutions
+that exist for it.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+**Instructor:** [Prof. Andy Ruina](https://ruina.org) · taught at Plaksha
+University using the Cornell lecture recordings.
+
+```{python}
+#| echo: false
+#| output: asis
+import sys
+sys.path.insert(0, "scripts")
+import coursesite as S
+
+meta = S.load("meta")
+c = meta["counts"]
+bits = [f"**{c['lectures']}** lectures", f"**{c['homeworks']}** homework problems"]
+if meta["notes_sets"]:
+    bits.append(f"**{len(meta['notes_sets'])}** sets of lecture notes")
+print(" · ".join(bits))
+```
+
+## Where to go
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### [Course Outline](outline.qmd)
+What the course covers, the learning outcomes, recommended reading, and how
+you are graded.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### [Lectures](lectures.qmd)
+Every lecture with its recording and any student notes covering it. Sortable
+and searchable.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### [Homework](homework.qmd)
+The combined problem set (deep-linked per problem), solutions where available,
+and the grading/submission policy.
+:::
+
+:::
+
+## Getting started
+
+1. Read the [Course Outline](outline.qmd) — in particular the grading split.
+2. Skim the [homework policy](homework.qmd#homework-policy) before your first
+   submission.
+3. Work through the [Lectures](lectures.qmd) at roughly two per week, doing the
+   matching homework as you go.
+
+::: {.callout-tip}
+Solutions marked ⚠ have not been reviewed by the instructor. Treat them as a
+hint or a cross-check, not as a model answer.
+:::

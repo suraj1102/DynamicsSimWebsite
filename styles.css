@@ -1,1 +1,151 @@
-/* css styles */
+/* Dynamics & Simulation course site */
+
+:root {
+  --pill-radius: 999px;
+  --video: #0b6bcb;
+  --video-bg: #e8f1fc;
+  --notes: #6b3fa0;
+  --notes-bg: #f1ebf9;
+  --solution: #16794c;
+  --solution-bg: #e6f4ec;
+  --problem: #8a5a00;
+  --problem-bg: #fdf1dc;
+  --used: #16794c;
+  --used-bg: #e6f4ec;
+  --unused: #6c757d;
+  --unused-bg: #eef0f2;
+  --file-bg: #eef0f2;
+}
+
+/* --- link pills used throughout the two data tables --- */
+.pill {
+  display: inline-block;
+  padding: 0.12em 0.62em;
+  margin: 0.12em 0.1em;
+  border-radius: var(--pill-radius);
+  font-size: 0.82em;
+  line-height: 1.6;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.pill:hover {
+  text-decoration: none;
+  filter: brightness(0.94);
+}
+
+.pill-video    { color: var(--video);    background: var(--video-bg);    border-color: color-mix(in srgb, var(--video) 25%, transparent); }
+.pill-notes    { color: var(--notes);    background: var(--notes-bg);    border-color: color-mix(in srgb, var(--notes) 25%, transparent); }
+.pill-solution { color: var(--solution); background: var(--solution-bg); border-color: color-mix(in srgb, var(--solution) 25%, transparent); }
+.pill-problem  { color: var(--problem);  background: var(--problem-bg);  border-color: color-mix(in srgb, var(--problem) 25%, transparent); }
+.pill-used     { color: var(--used);     background: var(--used-bg); }
+.pill-unused   { color: var(--unused);   background: var(--unused-bg); }
+.pill-file     { color: #333;            background: var(--file-bg); font-size: 0.78em; }
+
+/* a solution set that has supporting files but no PDF of its own */
+.pill-nopdf {
+  opacity: 0.75;
+  border-style: dashed;
+  cursor: help;
+}
+
+.warn {
+  color: #b54708;
+  font-weight: 700;
+  cursor: help;
+}
+
+.muted {
+  color: #8a9099;
+}
+
+/* collapsible list of supporting .m/.png files under a solution */
+details.support {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.25em;
+}
+
+details.support > summary {
+  cursor: pointer;
+  font-size: 0.76em;
+  color: #6c757d;
+  list-style: none;
+}
+
+details.support > summary::-webkit-details-marker { display: none; }
+details.support > summary::before { content: "+ "; }
+details.support[open] > summary::before { content: "− "; }
+
+details.support > *:not(summary) { display: inline; }
+
+/* --- itables tweaks --- */
+table.course-table {
+  font-size: 0.94rem;
+  width: 100% !important;
+}
+
+table.course-table td {
+  vertical-align: top;
+}
+
+table.course-table td:first-child,
+table.course-table th:first-child {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  text-align: center;
+}
+
+table.course-table td:first-child {
+  font-variant-numeric: tabular-nums;
+  color: #6c757d;
+}
+
+/* keep the table controls from crowding the table */
+.dt-container .dt-layout-row { margin-bottom: 0.5rem; }
+
+/* --- embedded policy PDF --- */
+.pdf-embed {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: #f8f9fa;
+}
+
+.pdf-embed object { display: block; }
+
+/* --- "other materials" listing --- */
+ul.other-materials {
+  columns: 2;
+  column-gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+ul.other-materials li {
+  break-inside: avoid;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 700px) {
+  ul.other-materials { columns: 1; }
+  .pdf-embed object { height: 480px; }
+}
+
+/* --- home page cards ---
+   Quarto renders a ::: block containing a heading as a <section>, not a <div>,
+   so match on the grid-column class rather than the element name. */
+.grid > [class*="g-col"] {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  background: #fcfcfd;
+}
+
+.grid > [class*="g-col"] h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.grid > [class*="g-col"] p:last-child { margin-bottom: 0; }
