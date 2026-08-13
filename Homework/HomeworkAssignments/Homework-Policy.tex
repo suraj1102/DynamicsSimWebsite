@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{rpmath}
+\usepackage{graphicx}
+%\usepackage{enumerate}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{rotating}
+
+%\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\catcode`\^^M=10      %  Makes blank lines meaningless to TeX,
+                                 % forces useof  \par at paragraph breaks
+ 
+ \usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\headheight 0 pt
+\rhead{}
+\chead{}
+\lhead{}
+\lhead{}
+\rfoot{\thepage}
+\cfoot{IISc, Mech Eng,  Appl. Dyn. 1:  Homework Policy}
+\lfoot{ \today}                                
+                                 
+\def\tight{ \setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}}
+ \def\blueref#1{{\color{blue}\bf\ref{#1}}}                           
+ \def\bluehref#1#2{\href{#1}{\color{blue}\bf #2}}                           
+
+  \def\vu{\handvec{\bf u}}                                
+
+\title{\vskip -1in HOMEWORK POLICY\\
+IISc Mech. Eng., Applied Dynamics I \\
+\textbf{Homework} }
+\date{Date of this version:  \today}
+
+\textheight 9 in
+
+\def\Rtensor{\underline{\underline{\mathbf R}}}                            
+ \def\Itensor{\underline{\underline{\mathbf I}}}    
+ \def\onetensor{\underline{\underline{\mathbf 1}}} 
+  \def\ntensor{\underline{\underline{\mathbf n}}} 
+   \def\omegatensor{\underline{\underline{\mathbf \Omega}}} 
+
+\begin{document}
+\maketitle
+
+\noindent
+\href{http://en.wikipedia.org/wiki/Hyperlink}{\color{blue}Hyperlinks look like this.}
+ 
+%%%%%%%%
+%Homework style sheet
+% This is an input file for the Homework  document
+
+\label{sec:homework}
+
+\section{Note to homework grader(s)}
+Dear graders and gradees:\\ \\
+As a grader please grade homework like this. As a student, please keep these things in mind. Read this policy once per week until you have digested the whole of it.  Let us know if anything is unclear, needs improvement, should be changed substantially or should be added.
+
+\begin{enumerate}
+\item \textbf{Rubric.}  If peer grading is used, the peer graders are not giving a grade or a score, but rather a critique. You should be giving the most useful feedback possible to both the student, and the TA who will be giving a grade. The peer grader should keep in mind the following.  However, you do not have to answer these questions literally.   
+
+\item  \textbf{Could the student you are grading do the problem with infinite time?} What is the probability, out of 100\%,  as best you can assess it from the homework you are looking at, of the following.
+Imagine the given student is on an island with no help and no access to \href{https://lmgtfy.com/?q=How+do+I+solve+dynamics+problems}{\color{blue}\small \tt GOOGLE}.
+They are given a similar problem to do.  Someone cares about the result but is suspicious.  The student has 2 weeks to do the problem. That is, there is no issue of having enough time.  \textit{What is the probability} that they could get the right answer and convincingly write it up? 
+
+\item  \textbf{Imagine you care.}  Imagine that you are a manager at the great new ambitious fast-growing company \textsf{AUTONOMOUS-ELECTRO-TUBE Y$^{\sf 2}$}. You are supposed to design the next  energy-blasting hyper app.  You need to hire a Cornell Engineer to do something that is based on the skills from the  homework you are now grading.  How much, based on the homework before you, would you trust the student to do the job (assuming they have no outside help but have plenty of  time).
+
+\item  \textbf{Mastery.} Does the student have mastery of the problem?  This could be really  deep.  In the extreme, for example,  you might think that a  student should get a full homework grade and extra credit,  even if they did none of the other problems in the set.   A great student effort is not necessarily partitioned evenly amongst the assigned problems, a great homework might even have some poorly done or missing problems.
+
+\item \textbf{Clarity.}  Consistently with the things above, check for  clear communication including.
+
+\begin{enumerate}
+
+\item  On the first page of the homework, check for the following, to ease your sorting:
+\begin{enumerate}
+ \item  	 On the top right corner  look for student's name, course \# and name, due date. 
+ 
+ \item At the top,  students  should write how many hours they worked on the homework. We need this so we can separate  their effort level from their skill level. This also helps us gauge the work load we are imposing. 
+ 
+
+ 
+
+ 
+
+
+ 
+ 
+
+\item \textbf{Student's should cite their  help.} Students are allowed to get any amount of help from any sources or people. At the top of each problem they should acknowledge all help they  got from, e.g.,  TAs, faculty, students, or any other source. They  could write, for example: "Mitch McConnel pointed out to me that I needed to draw the second FBD in problem 2." or ``Susan Collins showed me how to do problem 3 from start to finish.'' or ``I copied this solution word for word from Ruth Ginsburg '' or ``I found a problem just like this one, number 386.5.6, at boydowehavesolutionsforyou.com, and copied it.'' etc.  Still, they should follow academic integrity principles:  they must be clear about which parts of their presentation they did not do on their own.  It is hereby declared that violation of this policy is not a violation of `Academic integrity' rules.
+It is, however, a violation of academic integrity.  So here, where it is safe, you can note and encourage that as you grade.  But do not take off credit for suspected violations. 
+ \end{enumerate}
+
+\item  \textbf{FBDs}. \textit{Every} use of linear or angular momentum balance must be associated with a \textbf{clear correct free body diagram}.
+
+\item \textbf{Vector notation} must be clear and correct (As described in, \eg \href{http://http://ruina.tam.cornell.edu/Book/index.html}{\color{blue}Ruina and Pratap}).
+
+\item  \textbf{Units.} Every line of every calculation should be dimensionally correct (students should carry units as described in the  Ruina/Pratap book appendix, and as seen in the examples therein).
+
+\item \textbf{Clear layout.} Work should be laid out neatly enough to be read by someone who does not know how to do the problem. Part of their jobs as an engineers will be to \textit{convincingly} get the right answers. Their job on the homework is to practice this. They should strive for  ``solutions quality''. Each problem should start on a fresh page; a new problem should not start on the same page as the ending of another problem.
+
+\item \textbf{Self contained}  A solution should be self-contained, including, for example, enough of a problem restatement so that \textit{a reader can understand the solution without ever seeing the posted  problem statement.} Solutions should be clear and convincing enough so that another student (who has not done the problem and does not know how to do it) can read the  solution, understand it, and judge that it is correct.  
+
+\item \textbf{Boxed or circled answers.} Answers and main results should be clearly marked. 
+
+\item \textbf{Posted solutions.} Look out for student work that is complete and clear enough that we can use it  as an example
+to post.
+
+\item \textbf{Make work: `Can do, don't want to.'}  In general, that is always,  students should be doing problems because doing those problems are educational. Some problems may seem like make-work to some students because they already knows how to do them. If so, the TAs will give 95\% credit if they write, in full ``I can do this problem but don't feel I will gain from writing out the solution'' or, in short, ``Can do, don't want to.''  But, they have to be honest.  Let them know if you doubt their self-assessment.  For example ``Can do, don't want to'' should not be confused with ``Could look up, don't want to.''.
+
+Or, a student might not know how to do a problem. But,  they think they can learn better by spending time on a different problem. They should say so and do a different problem. That's fine.
+
+
+\item \textbf{Regrading.} So long as they  have made a good attempt at their first effort, students  can get 80\% credit by redoing a problem. These will be looked at in a pile at the end of the semester.
+
+\item \textbf{Binder.} The students should be keeping a binder (or folder or notebook) of all of their work. At the end of the semester we will ask the students to show a folder of their  completed HW.  Thus, at the end we have a chance to  assess  the net homework effort and quality. 
+
+\item \textbf{MATLAB, Computer work}
+
+
+
+\begin{enumerate} \tight
+
+\item \textbf{Clear and identified.} The student's  name should be near the top of the computer text file. Student's should highlight (or circle with a colored pen) their name on the computer printout. At least some part of any other computer output should also include the student's name, printed by the computer.  They should highlight (or circle) their name on each page. We are not penalizing copying, but we do not want to facilitate it. 
+
+\item \textbf{Commented.} Code should be well commented. 
+
+\item  \textbf{Derivations.}  Student's should show hand calculations for derivation of equations of motion. Or, equivalently, show clear computer algebra inputs and outputs. 
+
+\item  \textbf{Print out.} They should print and attach the entirety of the code  they use,  with additional hand-written annotations, as is needed to make the code easy to read.
+
+\item  \textbf{Verify. } Students should show, by whatever combination of methods they have the ability and time for, the reasons they think  their  solution is correct.  Mastering these things is the key to debugging.  Some ideas:
+\begin{enumerate}\tight
+   \item  It matches an analytic solution.
+ \item    One or more  special cases match an  analytic solution.
+  \item   Obeys one or another known and applicable symmetry or conservation law.
+  \item   It matches intuitive trends.
+  \end{enumerate}
+  
+Use figures and numerical values to show these consistencies between the numerical solution and things that are known or suspected to be true. 
+
+\item  \textbf{Answer the question.} Work should show the answer clearly.  Student work should, for each problem, earn your trust.  Often,  figures will  show the result, and need annotation to point it out.  And an explanation in words.  And, if appropriate, numbers. Arrows and circles and annotations can greatly clarify a computer's plots or numerical output.
+
+\item  \textbf{Labeled plots. } Each plot needs both axis labeled and a title. Computer labeling is fine, but it is also fine to label computer plots by hand.
+
+\item  \underline{\tt axis equal}. If both axis represent physical position, unless you have good reason to do otherwise, use  Matlab's ``{\tt axis equal}''.  This way, circles will look round, squares square, and trajectories will have the right shapes.
+
+\item \underline{\tt axis ([-6 6 0 10])}.  Use a command like this to keep your view constant as an animation proceeds. Without this,  it's as if the camera is panning and zooming, following your object and not really showing its motion.
+
+\item \underline{\tt Big Fonts}. Put this in your {\tt startup.m} file and leave it there all semester: {\tt set(0,'DefaultAxesFontSize', 20)}. Or, put a line like this in all of your
+{\tt main.m} files. 25 or 30 is ok too. 
+
+
+\item  \textbf{Readable files, including right-hand-side files.}
+As a general rule,  computer commands should not be written in hard-to-decypher code.  Rather, each line should be readable and checkable.  More short lines of code are usually easier to read, sometimes far easier,  than long lines of code.
+
+\item In ODE problems, always look for the following.
+
+\begin{enumerate}
+\item  \textbf{Use  of clear variables. } Variables and constants  should be unpacked into readable variables. No calculations should be done with, for example, {\tt  z(4)} and {\tt  z(7)}. Rather, formulas should use {\tt  theta1} and {\tt  v3} and such like.  Using readable variables makes the code 117 times more readable and debuggable.
+
+\item  \textbf{Structs. } Pass parameters using structs.  Namely p.m, p.G etc, not a list of variables.  (However, as far as I know, you have to abandon this rule when using {\tt matlabFunction}.)
+
+\item  \textbf{Don't throw in a random use of Euler's method. } If you are solving your ODEs with, say, ODE45,  then also use ODE45 for your energy check by adding equations like  {\tt Wdot = P} to your list of ODEs.
+
+\item  \textbf{Black and white.}  You can use color.  But your plots need to make sense when printed in black and white.  So use, say, \textit{thick} red lines and \textit{thin} blue lines.
+
+\item  \textbf{tspan.}   Unless all you want is the solution at the final time, \textit{always} use something like
+{\tt tspan = linspace(0,10,1001)},  rather than   {\tt  tspan=(0,10)}.  This way, animations will not move in erratic ways due to uneven time steps.   You get output at times you care about. \textbf{Exception:}  you can, instead,  use the simpler two-number version of {\tt tspan} and interpolate the solution as needed using {\tt soln = ode45(...)}  and {\tt deval(soln,t)}.)
+
+\item  \textbf{Options.}  Appropriate  use these features of ODESET:   'RelTol', 'AbsTol', 'events', etc.
+
+\item Generally, don't invert matrices symbollically. If you don't understand this direction, do this 
+experiment.  Run these \matlab commands to symbolically invert a $5\times5$ matrix:\\
+{\tt
+syms a b c d e f g h i j k l m n o p q r s t u v w x y real  \\
+A = [a b c d e f g h i j k l m n o p q r s t u v w x y];\\
+A = reshape(A,[5 5]);\\
+inv(A)
+}
+\\
+
+You will get a three page answer.  It's worse for $6\times6$ and bigger.   Whereas, with numbers the inverse  is just a matrix made up of the same number of numbers. 
+
+Then run these \matlab commands:\\
+{\tt
+A = rand(5);\\
+inv(A)
+}
+
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+\end{enumerate} 
+\end{enumerate}
+
+\clearpage
+
+
+
+
+\end{document}  
+
+
+

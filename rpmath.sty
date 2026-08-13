@@ -1,0 +1,747 @@
+%%
+%% This is file `rpmath.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% rpmath.dtx  (with options: `package')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from rpmath.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file rpmath.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{rpmath}%
+           [2008/06/17 v1.3.3 Ruina Pratap Math Typing Package]
+\makeatletter
+%\RequirePackage[subscriptcorrection,slantedGreek,nofontinfo]{mtpro2}
+\RequirePackage{trace}
+\RequirePackage[low-sup]{subdepth}
+\RequirePackage{amsmath}
+\RequirePackage{accents} % Note: amsmath MUST come befor this one!
+\def\mef#1#2{\DeclareRobustCommand#1{\math@mode{#2}}}
+\newcommand{\mmef}[3][]{\DeclareRobustCommand#2[1]{\math@mode{#3}}}
+\def\tef@s*#1#2{\DeclareRobustCommand#1{#2}}
+\def\tef{\@ifnextchar*\tef@s\gdef}
+\chardef\f@urteen14
+%\font\sevenrm=cmr7 % SDH 10/25/07 - I think this is correct
+ %% Andy prefers smaller subscripts, so we'll shrink the scripts by a point.
+%\font\rp@sevenscript=mt2mis at 7.0pt % normally 8pm
+%\font\rp@fivescriptscript=mt2mif at 5.0pt % normally 6pt
+%\scriptfont1=\rp@sevenscript
+%\scriptscriptfont1=\rp@fivescriptscript
+
+ %%%% moved from rpbook @@@@ DOCUMENT!
+%\DeclareMathAlphabet{\mathbit}{LMP1}{mtt}{b}{it}
+\def\mathbit#1{\boldsymbol{#1}} % needed for RPmath
+\newcommand\pbf[1]{\mathbit{#1}}
+\def\i{\ensuremath\imath}
+\def\j{\ensuremath\jmath}
+%\newfont\@rpsymbolfont{rpsymbol}
+ %%%%
+
+\expandafter\ifx\csname subscript character \string_\endcsname\relax
+  \def\bm{\fam\bffam}%
+\else
+  % MTPLUS.TEX is loaded
+  \def\cal{\fam\f@urteen}%
+  % \def\i{\mathchar"017B}\def\j{\mathchar"017C}%
+  %above moved to newstyle.sty and \imath and \jmath used instead
+\fi
+\gdef\ignore{\begingroup\count255=0
+     \loop\catcode\count255=14
+           \advance\count255 by1 \ifnum\count255<128
+      \repeat \catcode`\!=0 }
+{\catcode`\!=0 !gdef!E{!endgroup}}
+\def\handvec{\@handvec{0}}%
+\DeclareRobustCommand\@handvec[2]{%
+  \mathord{%
+    \vbox{%
+      \ialign{%
+\hfil##\hfil\cr
+        \noalign{\vskip-1.25\p@}%
+$\mathord{\mkern#1mu\scriptscriptstyle\rightharpoonup\mkern-#1mu}$\cr
+\noalign{\nointerlineskip}%
+$#2$\cr
+      }%
+    }%
+  }%
+}%
+ % SDH - replacement for all the handvec varieties
+\def\Vec{\protect\accentset\rightharpoonup} % protect hopefully won't hurt
+\def\@rightharpoonup{{%
+  \setbox\z@\hbox{\lower1.2\p@\hbox{$\scriptscriptstyle\rightharpoonup$}}%
+  \dp\z@0\p@\box\z@%
+}}
+\def\Vec{\protect\accentset\@rightharpoonup} % protect hopefully won't hurt
+\def\@mkern@#1#2#3{\mathord{\mkern#2mu#1{\mkern-#2mu#3\mkern#2mu}\mkern-#2mu}}%
+\def\@hat{\@mkern@\hat}%
+\def\@dot{\protect\@mkern@\dot}%
+\def\@ddot{\@mkern@\ddot}%
+ %%
+ %WFA couldn't get \@handvec to work in section heads &c.,
+ %WFA so made an alternative version --- may be flexible
+ %WFA enough to replace the original
+\DeclareRobustCommand\HANDVEC[2]{%
+  \overset{{\mkern#1mu\scriptscriptstyle\rightharpoonup}\mkern-#1mu}%
+  {\smash{#2}\vrule width0pt height 1.05ex}%
+}
+ %WFA and since the vertical is hardwired, another for lc
+\DeclareRobustCommand\HANDvec[2]{%
+  \overset{{\mkern#1mu\scriptscriptstyle\rightharpoonup}\mkern-#1mu}%
+  {\smash{#2}\vrule width0pt height .6ex}%
+}
+ %%
+ %\let\scriptstyle\scriptscriptstyle
+ %% SDH - we can (a) shrink scriptfont sizes, (b) add new command
+ %% it seems like 7pt is good for a lot of them, but still a few are
+ %% too high.  Maybe ditch the package and just use our own lowering
+ %% to get any height we want.
+\DeclareRobustCommand\sub[1][0pt]{_}
+ %%\newcommand\sub[2][0pt]{_{\lower#1\hbox{$\scriptscriptstyle\!#2$}}} % This makes subscripts smaller
+ %%%%%%
+
+ %%
+\def\stackrel#1#2{\mathrel{\mathop{#2}\limits^{#1}}}
+%\def\frac#1#2{{#1\over #2}}
+ %%
+\def\bodydot#1#2{%
+ \mathord{{}^{^{#1\!\!\!\!}}#2}%
+}%
+\def\bodydot#1#2{%
+ \mathord{{\vphantom{#2}}^{^{#1\!\!\!}}\dot#2}%
+}%
+\def\bodydotH#1#2{%
+ \mathord{{\vphantom{\vH}}^{^{#1\!\!\!\!\!}}#2}%
+}%
+\def\bodydotQ#1#2{%
+ \mathord{{\vphantom{\vQ}}^{^{#1\!\!\!\!\!}}#2}%
+}%
+ %%
+\def\@ifmmode{\ifmmode\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}%
+ %
+\def\math@mode#1{\relax\@ifmmode{#1}{\hbox{$#1$}}}% \hbox added by sdh 12/24/07
+ %%spacing commands used for figures in exercises.
+\gdef\standardskip{\bigskip}
+\gdef\figureskip{\vskip 1 truein}
+
+\def\@mathlower#1#2#3{\lower#2\hbox{$#1#3$}}
+\def\@@mathlower#1#2{\@mathlower{#1}#2} % I shouldn't need this extra one
+\def\mathlower#1#2{\mathpalette\@@mathlower{{#1}{#2}}}
+
+\def\@subR{_{\scriptscriptstyle\!R}}
+\def\@subth{_{\scriptscriptstyle\!\theta}}
+\def\@subb{_b}
+\def\@subr{_r}
+\def\@subn{_n}
+\def\@subt{_t}
+\def\@sub@i{_1}
+\def\@sub@ii{_2}
+\def\@sub@iii{_3}
+\def\@subi{_i}
+\def\@subzz{_{zz}}
+\def\@sub@cm{_{\mathrm{cm}}}
+\def\@sub@cor{_{\mathrm{cor}}}
+\def\@sub@int{_{\mathrm{int}}}
+\def\@sub@rel{_{\mathrm{rel}}}
+\def\@sub@tot{_{\mathrm{tot}}}
+\def\@sub@K{_{\mathrm{K}}}
+\def\@sub@P{_{\mathrm{P}}}
+\def\@sub@T{_{\mathrm{T}}}
+\def\@sub@C{_{\mathlower{1\p@}{\mathrm{C}}}}
+\def\@sub@O{_{\mathlower{1\p@}{\mathrm{O}}}}
+\def\@sub@@C{_{\mathlower{1\p@}{\mathrm{/C}}}}
+\def\@sub@@O{_{\mathlower{1\p@}{\mathrm{/O}}}}
+\def\@sub@cm@C{_{\mathrm{cm/C}}}
+\def\@sub@i@C{_{i\mathrm{/C}}}
+\def\@sub@i@O{_{i\mathrm{/O}}}
+\def\@sub@i@cm{_{i\mathrm{/cm}}}
+\def\@sub@bodyB{_\bodyb}
+\def\@sub@bodyC{_\bodyc}
+\def\@sub@bodyD{_\bodyd}
+\def\@sub@bodyBC{_{\bodyb/\bodyc}}
+\def\@sub@bodyBF{_{\bodyb/\bodyf}}
+\def\@sub@bodyDB{_{\bodyd/\bodyb}}
+\def\@sub@bodyDC{_{\bodyd/\bodyc}}
+\def\@sub@bodyDF{_{\bodyd/\bodyf}}
+\def\@sub@bodyLF{_{\bodyL/\bodyf}}
+\def\@star{^*}
+\def\@sup@cm{^{\mathrm{cm}}}
+\def\@sup@G{^{\mathrm{G}}}
+\def\@sup@O{^{\scriptscriptstyle\mathrm{O}}}
+\mef\bzero{\boldsymbol{0}}
+\mef\vzero{\Vec\bzero}
+\mef\zerov{\Vec\bzero} % synonym
+
+\mef\ba{\mathbit{a}}
+\mef\va{\Vec\ba}
+\mef\acm{a\@sub@cm}
+\mef\bacm{\ba\@sub@cm}
+\mef\vacm{\va\@sub@cm}
+\mef\vacor{\va\@sub@cor}
+\mef\bai{\ba\@subi}
+\mef\vai{\va\@subi}
+\mef\varel{\va\@sub@rel}
+
+\mef\bA{\mathbit{A}}
+\mef\vA{\Vec\bA}
+\mef\vAdot{\dot\vA}
+\mef\bodya{\mathcal{A}}
+\mef\Adot{\bodya\boldsymbol{\cdot}}
+\def\@ub{\hat{\mathbit{b}}}
+\mef\ubi{\@ub\@sub@i}
+\mef\ubii{\@ub\@sub@ii}
+\mef\ubiii{\@ub\@sub@iii}
+\mef\vb{\@handvec{1}{\mathbit{b}}}
+
+\mef\bB{\mathbit{B}}
+\mef\vB{\Vec\bB}
+\mef\vBdot{\dot\vB}
+\mef\bodyb{\mathcal{B}}
+\mef\Bdot{\bodyb\boldsymbol{\cdot}}
+\mef\vc{\Vec{\mathbit{c}}}
+\mef\bC{\mathbit{C}}
+\mef\vC{\Vec{\bC}}
+\mef\vCdot{\dot\vC}
+\mef\bodyc{\mathcal{C}}
+\mef\Cdot{\bodyc\boldsymbol{\cdot}}
+
+\mef\bD{\mathbit{D}}
+\mef\vD{\Vec\bD}
+\mef\bodyd{\mathcal{D}}
+
+\def\@be{\mathbit{e}}
+\def\@ue{\hat\@be}
+\def\@uedot{\dot{\hat{\@be}}}
+\mef\ue{\@ue}
+\mef\beb{\@be\@subb}
+\mef\ueb{\@ue\@subb}
+\mef\ben{\@be\@subn}
+\mef\uer{\@ue\@subr}
+\mef\uen{\@ue\@subn}
+\mef\ber{\@be\@subr}
+\mef\uer{\@ue\@subr}
+\mef\uerdot{\@uedot\@subr}
+\mef\beR{\@be\@subR}
+\mef\ueR{\@ue\@subR}
+\mef\ueRdot{\@uedot\@subR}
+\mef\bet{\@be\@subt}
+\mef\uet{\@ue\@subt}
+\mef\beth{\@be\@subth}
+\mef\ueth{\@ue\@subth}
+\mef\uethdot{\@uedot\@subth}
+
+\mef\uestdi{\@ue\@sub@i}
+\mef\uestdii{\@ue\@sub@ii}
+\mef\uestdiii{\@ue\@sub@iii}
+\mef\stdbasis{\@ue\@subi}
+
+\mef\uestari{\@ue\@sub@i\@star}
+\mef\uestarii{\@ue\@sub@ii\@star}
+\mef\uestariii{\@ue\@sub@iii\@star}
+\mef\starbasis{\@be\@subi\@star}
+
+\mef\uei{\@ue\@sub@i}
+\mef\ueii{\@ue\@sub@ii}
+\mef\ueiii{\@ue\@sub@iii}
+
+\mef\bE{\mathbit{E}}
+\mef\vE{\@handvec{3}{\bE}}
+\mef\@uE{\hat{\mathbit{E}}}%
+\mef\uEi{\@uE\@sub@i}
+\mef\uEii{\@uE\@sub@ii}
+\mef\uEiii{\@uE\@sub@iii}
+
+\mef\iE{E\@sub@int}
+\mef\iEdot{\dot{E}\@sub@int}
+\mef\KE{{E\@sub@K}}
+\mef\KEdot{{\dot E\@sub@K}}
+\mef\PE{{E\@sub@P}}
+\mef\PEdot{{\dot E\@sub@P}}
+\mef\TE{E\@sub@T}
+\mef\bodye{\mathcal{E}}
+
+\mef\bF{\mathbit{F}}
+ %\mef\vF{\HANDVEC{4}{\bF}}
+\mef\vF{\Vec\bF}
+\mef\bodyf{\mathcal{F}}
+\mef\Fdot{\bodyf\boldsymbol{\cdot}}
+
+\mef\vg{\Vec{\mathbit{g}}}
+
+\mef\bH{\mathbit{H}}
+\mef\vH{\Vec\bH}
+\mef\bHdot{\dot\bH}
+\mef\vHdot{\dot\vH}
+\mef\bHC{\bH\@sub@C}
+\mef\vHC{\vH\@sub@@C}
+\mef\bHdotC{\bHdot\@sub@@C}
+\mef\vHdotC{\vHdot\@sub@@C}
+\mef\vHcm{\vH\@sub@cm}
+\mef\vHdotcm{\vHdot\@sub@cm}
+\mef\vHo{\vH\@sub@@O}
+\mef\vHdoto{\vHdot\@sub@@O}
+\mef\BdotvH{\bodydotH{\bodyb}{\vHdot}}
+
+\mef\bi{\mathbit\imath}
+\mef\ui{\hat\bi}%
+\mef\uidot{\dot\ui}
+\mef\bip{\bi'}
+\mef\uip{\ui'}
+\mef\uipp{\ui''}
+\mef\uipdot{\dot\ui'}
+\mef\uippdot{\dot\ui''}
+
+\mef\bI{\mathbit{I}}
+\mef\Ig{\bI\@sup@G}
+\mef\I{[\bI]}
+\mef\Icm{[\bI\@sup@cm]}
+\mef\Izero{[\bI\@sup@O]}
+\mef\Icmzz{I\@sup@cm\@subzz}
+\mef\Iozz{I\@sup@O\@subzz}
+
+\mef\bj{\mathbit\jmath}
+\mef\bjp{\bj'}
+\mef\uj{\skew3\hat\bj}%
+\mef\ujdot{\skew3\dot\uj}
+\mef\ujp{\uj'}
+\mef\ujpp{\uj''}
+\mef\ujpdot{\ujdot'}
+\mef\ujppdot{\ujdot''}
+
+\mef\bk{\mathbit{k}}
+\mef\bkp{\bk'}
+\mef\uk{\skew{-1}\hat\bk}
+\mef\ukdot{\skew{-1}\dot\uk}
+\mef\ukp{\uk'}
+\mef\ukpp{\uk''}
+\mef\ukpdot{\ukdot'}
+\mef\ukppdot{\ukdot''}
+
+\mef\bL{\mathbit{L}}
+\mef\vL{\Vec\bL}
+\mef\bLdot{\dot\bL}
+\mef\vLdot{\dot\vL}
+\mef\bodyL{\mathcal{L}}
+
+\mef\mtot{m\@sub@tot}
+\mef\bM{\mathbit{M}}
+\mef\vM{\Vec\bM}
+\mef\vMo{\vM\@sub@O}
+\mef\vMC{\vM\@sub@C}
+\mef\vMcm{\vM\@sub@cm}
+
+\mef\bn{\mathbit{n}}
+\mef\un{\hat\bn}
+
+\mef\bN{\mathbit{N}}
+\mef\vN{\Vec\bN}
+
+\mef\bP{\mathbit{P}}
+\mef\vP{\Vec\bP}
+
+\mef\bQ{\mathbit{Q}}
+\mef\bQdot{\dot\bQ}
+\mef\vQ{\Vec\bQ}
+\mef\vQdot{\dot\vQ}
+\mef\vQdotA{\bodydotQ{\bodya}{\vQdot}}
+\mef\vQdotB{\bodydotQ{\bodyb}{\vQdot}}
+\mef\vQdotC{\bodydotQ{\bodyc}{\vQdot}}
+\mef\vQdotF{\bodydotQ{\bodyf}{\vQdot}}
+
+\mef\br{\mathbit{r}}
+\mef\vr{\Vec\br}
+\mef\brcm{\br\@sub@cm}
+\mef\vrcm{\vr\@sub@cm}
+\mef\brcmc{\br\@sub@cm@C}
+\mef\vrcmc{\vr\@sub@cm@C}
+
+\mef\bric{\br\@sub@i@C}
+\mef\vricm{\vr\@sub@i@cm}
+\mef\vric{\vr\@sub@i@C}
+\mef\vrio{\vr\@sub@i@O}
+\mef\vrc {\vr\!\@sub@@C}
+\mef\vro {\vr\!\@sub@@O}
+\mef\rdot{\dot r}
+\mef\brdot{\dot\br}
+\mef\vrdot{\dot\vr}
+\mef\rddot{\ddot r}
+\mef\brddot{\ddot\br}
+\mef\vrddot{\ddot\vr}
+\mef\Bdotvr{\bodydot\bodyb\vr}
+\mef\Fdotvr{\bodydot\bodyf\vr}
+
+\mef\bR{\mathbit{R}}
+\mef\vR{\Vec\bR}
+\mef\Rdot{\dot R}
+\mef\vRdot{\dot\vR}
+\mef\Rddot{\ddot R}
+\mef\vRddot{\ddot\vR}
+
+\mef\ut{\hat{\mathbit{t}}}
+\mef\vT{\Vec{\mathbit{T}}}
+
+\mef\bv{\mathbit{v}}
+\mef\vv{\Vec\bv}
+\mef\vdot{\dot v}
+\mef\bvdot{\dot\bv}
+\mef\vvdot{\dot\vv}
+\mef\vvp{\vv'}
+\mef\vcm{v\@sub@cm}
+\mef\bvcm{\bv\@sub@cm}
+\mef\vvcm{\vv\@sub@cm}
+\mef\bvi{\bv\@subi}
+\mef\vvi{\vv\@subi}
+\mef\vvrel{\vv\@sub@rel}
+
+\mef\bV{\mathbit{V}}
+\mef\vV{\Vec\bV}
+
+\mef\bW{\mathbit{W}}
+\mef\vW{\Vec\bW}
+\mef\bw{\mathbit{w}}
+\mef\vw{\Vec\bw}
+
+\mef\bx{\mathbit{x}}
+\mef\vx{\Vec\bx}
+\mef\xdot{\dot x}
+\mef\bxdot{\dot\bx}
+\mef\vxdot{\dot\vx}
+\mef\xddot{\ddot x}
+\mef\bxddot{\ddot\bx}
+\mef\vxddot{\ddot\vx}
+
+\mef\by{\mathbit{y}}
+\mef\vy{\Vec\by}
+\mef\ydot{\dot y}
+\mef\bydot{\dot\by}
+\mef\vydot{\dot\vy}
+\mef\yddot{\ddot y}
+\mef\byddot{\ddot\by}
+\mef\vyddot{\ddot\vy}
+\mef\yoneddot{\yddot\@sub@i}
+\mef\ytwoddot{\yddot\@sub@ii}
+
+\mef\zdot{\dot z}
+\mef\zddot{\ddot z}
+
+\mef\balpha{\boldsymbol{\alpha}}
+\mef\valpha{\Vec\balpha}
+\mef\valphaB{\valpha\@sub@bodyB}
+\mef\valphaC{\valpha\@sub@bodyC}
+\mef\valphaD{\valpha\@sub@bodyD}
+\mef\valphaBC{\valpha\@sub@bodyBC}
+\mef\valphaDB{\valpha\@sub@bodyDB}
+\mef\valphaDF{\valpha\@sub@bodyDF}
+
+\mef\phidot{\dot\phi}
+\mef\phiddot{\ddot\phi}
+
+\mef\bkappa{\boldsymbol{\kappa}}
+\mef\vkappa{\Vec\bkappa}
+
+\mef\blambda{\boldsymbol{\lambda}}
+\mef\ulambda{\skew{-2}\hat\blambda}
+\mef\ul{\ulambda} % synonym
+
+\mef\psidot{\dot\psi}
+\mef\psiddot{\ddot\psi}
+
+\mef\thetadot{\dot\theta}
+\mef\thetaddot{\ddot\theta}
+
+\mef\bomega{\boldsymbol{\omega}}
+\mef\vomega{\Vec\bomega}
+\mef\omegadot{\dot\omega}
+\mef\bomegadot{\dot\bomega}
+\mef\vomegadot{\dot\vomega}
+
+\mef\omegaB     {\omega\@sub@bodyB}
+\mef\omegaBsq   {\omega^2\@sub@bodyB}
+\mef\vomegaB    {\vomega\@sub@bodyB}
+\mef\omegadotB  {\omegadot\@sub@bodyB}
+\mef\vomegadotB {\vomegadot\@sub@bodyB}
+\mef\vomegaC    {\vomega\@sub@bodyC}
+\mef\vomegaD    {\vomega\@sub@bodyD}
+\mef\vomegadotD {\vomegadot\@sub@bodyD}
+
+\mef\vomegaBC   {\vomega\@sub@bodyBC}
+\mef\vomegadotBC{\vomegadot\@sub@bodyBC}
+\mef\vomegaDB   {\vomega\@sub@bodyDB}
+\mef\vomegadotDB{\vomegadot\@sub@bodyDB}
+\mef\vomegaDF   {\vomega\@sub@bodyDF}
+\mef\vomegadotDF{\vomegadot\@sub@bodyDF}
+\mef\vomegaLF   {\vomega\@sub@bodyLF}
+
+\mef\BdotvomegaBF{\bodydot\bodyb\vomega\@sub@bodyBF}
+\mef\BdotvomegaDB{\bodydot\bodyb\vomega\@sub@bodyDB}
+
+\mef\CdotvomegaBC{\bodydot\bodyc\vomega\@sub@bodyBC}
+\mef\CdotvomegaDB{\bodydot\bodyc\vomega\@sub@bodyDB}
+\mef\CdotvomegaDC{\bodydot\bodyc\vomega\@sub@bodyDC}
+
+\mef\FdotvomegaC {\bodydot\bodyf\vomega\@sub@bodyC}
+\mef\FdotvomegaD {\bodydot\bodyf\vomega\@sub@bodyD}
+\mef\FdotvomegaBC{\bodydot\bodyf\vomega\@sub@bodyBC}
+\mef\FdotvomegaBF{\bodydot\bodyf\vomega\@sub@bodyBF}
+\mef\FdotvomegaDB{\bodydot\bodyf\vomega\@sub@bodyDB}
+
+\mef\bOmega{\boldsymbol{\Omega}}
+\mef\vOmega{\Vec\bOmega}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mef\unitdot{\mathord{\cdot}}
+\mef\cm{\,\mathrm{cm}}
+
+\mef\cmpers{{\,{\mathrm{cm}}/{\mathrm{s}}}}
+
+\mef\degree{\ensuremath{^{\circ}}}
+\mef\degrees{\ensuremath{^{\circ}}}
+\mef\Degree{\ensuremath{^{\circ}}}
+\mef\Degrees{\ensuremath{^{\circ}}}
+
+\mef\ftpers{\,{\mathrm{ft/s}}}
+\mef\ftperss{\,{\mathrm{ft}}/{\mathrm{s}}^2}
+\mef\ftlb{\,{\mathrm{ft}}\unitdot{\mathrm{lb}}}
+\mef\ft{\,\mathrm{ft}}
+\mef\feet{\,\mbox{ft}}
+
+\mef\gm{\,\hbox{gm}}
+\mef\grad{\math@mode{\@handvec{0}{\nabla}}}
+\mef\gms{\,{\mathrm{grams}}}
+
+\mef\half{\frac{1}{2}}
+\mef\hour{\,{\mathrm{hr}}}
+\mef\hours{\,{\mathrm{hr}}}
+\mef\hp{\,\mbox{hp}}
+\mef\hr{\,{\mathrm{hr}}}
+\mef\hz{\,{\mathrm{hz}}}
+
+\mef\inches{\,{\mathrm{inches}}}
+\mef\inpers{\,{\mathrm{in/s}}}
+\mef\inperss  {\,{\mathrm{in}}/{\mathrm{s}}^2}
+%\mef\in{\,{\mathrm{in}}}
+\mef\inch{\,{\mathrm{inch}}}
+
+\mef\joule{\,\mbox{joule}}
+\mef\J{\,\mbox{J}}
+
+\mef\kg{\,\mathrm{kg}}
+\mef\kgf{\,\mbox{kgf}}
+\mef\kgpers{\,{\mathrm{kg/s}}}
+
+\mef\kgmpers{\,{\mathrm{kg}} \unitdot {\mathrm{m}}/{\mathrm{s}}}
+\mef\kgmperss{\,{\rm kg} \unitdot {\rm m}/{\rm s}^2}
+\mef\kgms{\,{\rm kg}\unitdot{\rm m}^2}
+\mef\kgmsqpers{\,{\rm kg}\unitdot{\rm m}^2{\rm /s }}
+\mef\kgmsqperss{\,{\rm kg}\unitdot{\rm m}^2{\rm /s^2 }}
+
+\mef\kilometers{\,{\rm  kilometers}}
+\mef\kilopond{\,\mbox{kilopond}}
+\mef\km{\,{\mbox{km}}}
+\mef\kmpers{\,{\rm km/s}}
+\mef\kmperh{\,{\rm km/h}}
+\mef\kn{\,{\rm kN}}
+\mef\kN{\,{\rm kN}}
+\mef\KW{\,\mbox{KW}}
+
+\mef\lbm{\,{\mathrm{lbm}}}
+\mef\lb{\,{\rm lb}}
+\mef\lbf{\,{\rm lbf}}
+\mef\lbft{\,{\rm lb}\unitdot{\rm ft}}
+
+\mef\mN{\,{\rm m}\unitdot{\rm N}}
+\mef\mi{\,{\rm mi}}
+\mef\mile{\,{\rm mi}}
+\mef\miles{\,{\rm mi}}
+\mef\mile{\,\mathrm{mi}}
+\mef\miles{\,\mathrm{mi}}
+
+\mef\m{\,\mathrm{m}}
+\mef\mm{\,{\rm mm}}
+\mef\meters{\,\mbox{meters}}
+\mef\min{\,{\rm min}}
+\mef\minute{\,{\rm min}}
+\mef\minutes{\,{\rm min}}
+\mef\mph {\,\mathrm{mph}}
+\mef\mpers{\,\mathrm{m}/\mathrm{s}}
+\mef\mpers{\,\mathrm{m}/\mathrm{s}}
+\mef\mperss{\,\mathrm{m}/\mathrm{s}^2}
+
+\mef\Nperkg{\mbox{N/kg}}
+\mef\Npercm{\,{\rm N}/{\rm cm}}
+\mef\kNperm{\,{\rm kN}/{\rm m}}
+\mef\N{\,{\mbox{N}}}
+\mef\Nperm{\,{\rm N}/{\rm m}}
+\mef\Nm{\,{\rm N}\unitdot{\rm m}}
+\mef\newton{\,{\rm Newton}}
+\mef\newtons{\,{\rm Newtons}}
+
+\mef\oz{\,\mbox{ounce}}
+\mef\pounds{\,\mbox{pounds}}
+\mef\poundal{\,\mbox{pdl}}
+\mef\pdl{\,{\rm pdl}}
+
+\mef\rad{\,{\rm rad}}
+\mef\radians{\,{\rm radians}}
+\mef\radpers{\,{\rm rad}/{\rm s}}
+\mef\radperss{\,{\rm rad}/{\rm s}^2}
+\mef\rev{\,\mbox{rev}}
+\mef\revolutions{\,{\rm revolutions}}
+\mef\revpers{\,{{\rm rev}/{\rm sec}}}
+\mef\revperss{\,{{\rm rev}/{\rm sec}^2}}
+\mef\rpm{\,{\rm rpm}}
+\mef\revpermm{\,{{\rm rev}/{\rm min}^2}}
+
+\mef\s{\,\mathrm{s}}
+\mef\second{\,{\rm s}}
+\mef\seconds{\,{\rm s}}
+\mef\slug{\,\mbox{slug}}
+
+\mef\ton{\,{\rm ton}}
+\mef\W{\,\mbox{W}}
+\mef\watt{\,\mbox{W}}
+\mef\watts{\,\mbox{W}}
+\mef\yd{\,\mbox{yd}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tef\centerofmass{{\@rpsymbolfont C}}
+
+\mef\AND{\qquad\mbox{and}\qquad}
+\mef\and{\qquad\mbox{and}\qquad}
+
+\mef\leftand{\hbox to .5in{and\hfil}}
+\mef\centerand{\hbox to .5in{\hfil and\hfil}}
+\mef\textand{\mbox{\ and\ }}
+
+\tef\AMB{Angular Momentum Balance }
+\tef\AMBp{Angular Momentum Balance.  }
+\tef\amb{angular momentum balance }
+\tef\ambp{angular momentum balance.  }
+
+\tef\eg{\textit{e.g.,\ }}
+\tef\etc{\textit{etc.}}
+\tef\etal{\textit{et\ al.}}
+
+\tef\FBD{Free-Body Diagram }
+\tef\FBDp{Free-Body Diagram.  }
+\tef\FBDs{Free-Body Diagrams }
+\tef\FBDsp{Free-Body Diagrams.  }
+\tef\Fbd{Free-body diagram }
+\tef\Fbdp{Free-body diagram.  }
+\tef\Fbds{Free-body diagrams }
+\tef\Fbdsp{Free-body diagrams.  }
+\tef\fbd{free-body diagram }
+\tef\fbdp{free-body diagram.  }
+\tef\fbds{free-body diagrams }
+\tef\fbdsp{free-body diagrams.  }%%
+\tef\ie{\textit{i.e.,\ }}
+
+\tef\LMB{Linear Momentum Balance }
+\tef\LMBp{Linear Momentum Balance.  }
+\tef\lmb{linear momentum balance }
+\tef\lmbp{linear momentum balance.  }
+
+\tef\mat{M{\footnotesize ATLAB}}
+\tef\matlab{M{\footnotesize ATLAB} }
+
+\mef\OR{\ \hbox{or}\ }
+\mef\leftor{\hbox to .5in{or\hfil}}
+\mef\rightor{\hbox to .5in{\hfil or}}
+\mef\centeror{\hbox to .5in{\hfil or\hfil}}
+
+\mef\therefore{\hbox to 0.8in{Therefore,\hfil}}
+
+\mef\leftwhere{\hbox to .5in{where\hfil}}
+
+\mef\implies{\hbox to .5in{\hfil$\Rightarrow$\hfil}}
+\mef\limplies{\implies \quad}
+\mef\cimplies{\quad \implies \quad}
+
+\mef\lmbeq{\sum \vF = m \va}
+\mef\ambeq{\sum \vMo = \vHdoto}
+\mef\vpolar{\dot{R} \ueR + R \thetadot \ueth}
+\mef\apolar{(\ddot{R}-R\thetadot^2)\ueR +
+              (2\dot{R}\thetadot + R \thetaddot) \ueth}
+\mef\grad{\Vec\nabla}
+ % SDH - \sevenrm is no longer supported in latex???
+\mef\trademark{{\sevenrm R\kern 2pt}\llap{$\bigcirc$}}
+
+\mmef\vrsub{\vr_{\!\mathrm{#1}}}
+\mmef\vvsub{\vv_{\mkern0.5mu\mathrm{#1}}}
+\mmef\vFsub{\vF_{\!\!\mathrm{#1}}}
+\mmef\vHsub{\vH_{\mathrm{#1}}}
+\mmef\vMsub{\vM_{\mathrm{#1}}}
+
+\mmef\vHdotsub{\vHdot^{}_{\mathrm{#1}}}
+\mmef\vasub{\va^{}_{\mathrm{#1}}}
+\mmef\vRsub{\vR^{}_{\mathrm{#1}}}
+\mmef\vTsub{\vT^{}_{\mathrm{#1}}}
+\mmef\ulsub{\ul^{}_{\mathrm{#1}}}
+
+\tef*\beqr{\begin{eqnarray}}
+\tef*\eeqr{\end{eqnarray}}
+\tef*\beqrs{\begin{eqnarray*}}
+\tef*\eeqrs{\end{eqnarray*}}
+\tef*\beqn{\begin{equation}}
+\tef*\eeqn{\end{equation}}
+\tef*\beqns{\begin{equation*}}
+\tef*\eeqns{\end{equation*}}
+
+\tef*\bans{\begin{answer}}
+\tef*\eans{\end{answer}}
+
+\tef*\bsol{\begin{solution}}
+\tef*\esol{\end{solution}}
+\tef*\fillerhalfin{\mbox{\hspace*{.5in}}}
+\tef*\filleronein{\mbox{\hspace*{1.0in}}}
+
+\tef*\c{\hfil\break}
+\tef*\ds{\displaystyle}
+
+\tef*\strutfl{\rule[-3mm]{0mm}{5mm}}
+\tef*\strutfu{\rule[0pt]{0mm}{4mm}}
+\tef*\strutfive{\rule[-2mm]{0mm}{5mm}}
+\tef*\strutseven{\rule[-2.5mm]{0mm}{7mm}}
+\tef*\strutten{\rule[-4mm]{0mm}{10mm}}
+
+\tef*\non{\nonumber}
+\tef*\samplefigskipsmall{\standardskip \mbox{ }}
+\tef*\samplefigskipbig{\figureskip \mbox{ }\marginpar{\strut}}
+
+\tef*\typetoday{\vfill {\tiny \today} \pagebreak}
+\mmef\sqrtf{{#1}^{1/2}}
+\mef\bigint{\xl\int}
+\mef\Bigint{\XL\int}
+\mef\bigsum{\xl\sum}
+\mef\Bigsum{\XL\sum}
+
+\mef\costhirty{\frac{\sqrt{3}}{2}}
+\mef\sinsixty{\frac{\sqrt{3}}{2}}
+\mef\forcebal{\sum\vF = \vzero}
+\mmef\mombal{\sum\vMsub{#1} = \vzero}
+
+\makeatother
+
+
+
+\endinput
+%%
+%% End of file `rpmath.sty'.
+
+Rename
+Delete
+New File
+New Folder
+Upload
