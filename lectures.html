@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lectures – Dynamics &amp; Simulation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6ac2aec46ad7f46b16024ee4409aa65c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dynamics &amp; Simulation</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./outline.html"> 
+<span class="menu-text">Course Outline</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./lectures.html" aria-current="page"> 
+<span class="menu-text">Lectures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./homework.html"> 
+<span class="menu-text">Homework</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lectures</h1>
+<p class="subtitle lead">Recorded lectures and student lecture notes</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Every row links to the recorded lecture video and to whichever sets of student lecture notes cover that lecture. Use the search box to filter by topic, and click a column header to sort.</p>
+<div id="c6d13150" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_eb162c47_5fc6_4145_b287_7e9cb1d76ee9" hidden="hidden">
+  <tbody>
+    <tr>
+      <td style="vertical-align:middle; text-align:left"><a href="https://itables.org/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:var(--itables-logo-paper,#d9d7fc)">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:var(--itables-logo-ink,#1a1366);stroke:var(--itables-logo-ink,#1a1366);">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+        Loading ITables v2.9.1 from the internet...
+        (need <a href="https://itables.org/troubleshooting.html">help</a>?)
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div id="itables_eb162c47_5fc6_4145_b287_7e9cb1d76ee9_fallback"><table style="border-collapse:collapse"><thead>    <tr style="text-align: right;">
+      <th style="border:1px solid #ddd;padding:8px"><sup><noscript><span title="JavaScript not allowed. Please trust this notebook to get interactive tables.">🔒</span></noscript><a href="https://itables.org/fallbacks/static_preview.html" title="ITables v2.9.1 static preview">ⓘ</a></sup>Lec</th>
+      <th style="border:1px solid #ddd;padding:8px">Lecture</th>
+      <th style="border:1px solid #ddd;padding:8px">Video</th>
+      <th style="border:1px solid #ddd;padding:8px">Notes</th>
+    </tr></thead><tbody>
+<tr><td style="border:1px solid #ddd;padding:8px">1</td><td style="border:1px solid #ddd;padding:8px">Course Introduction, Kinematics,  Constitutive Laws, Laws of Mechanics</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_wi9bjj83/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 01 Introduction.pdf" class="pill pill-notes" title="Lecture 01 Introduction">Andrew 1</a> <a href="Notes/NotesYeolim2018/1. 08-24 Intro-pos-vel.pdf" class="pill pill-notes" title="1. 08-24 Intro-pos-vel">Yeolim2018 1</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">2</td><td style="border:1px solid #ddd;padding:8px">Particles (Contd.), Forces (Contd.), ODE Solutions</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_9aj5k5eh/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 02 Particle Dynamics.pdf" class="pill pill-notes" title="Lecture 02 Particle Dynamics">Andrew 2</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">3</td><td style="border:1px solid #ddd;padding:8px">Particle Example, Defining EoM in MATLAB</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_7nnedakq/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 02 Particle Dynamics.pdf" class="pill pill-notes" title="Lecture 02 Particle Dynamics">Andrew 2</a> <a href="Notes/NotesPartial Andrew van Paridon/Lecture 03 Animating in Matlab.pdf" class="pill pill-notes" title="Lecture 03 Animating in Matlab">Andrew 3</a> <a href="Notes/NotesYeolim2018/3. 08-29 Particle-Dynamics.pdf" class="pill pill-notes" title="3. 08-29 Particle-Dynamics">Yeolim2018 3</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">4</td><td style="border:1px solid #ddd;padding:8px">Animation of Spring Mass, 2D</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_3n43ajrf/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 03 Animating in Matlab.pdf" class="pill pill-notes" title="Lecture 03 Animating in Matlab — MATLAB, vector products notes">Andrew 3</a> <a href="Notes/NotesPartial Andrew van Paridon/Lecture 04 Vectors and Dyadics.pdf" class="pill pill-notes" title="Lecture 04 Vectors and Dyadics — MATLAB, vector products notes">Andrew 4</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">5</td><td style="border:1px solid #ddd;padding:8px">Looking at Animations and trying to understand them</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_hnt26lbk/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">6</td><td style="border:1px solid #ddd;padding:8px">Theorems of Mechanics</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_f4xzy6ks/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 07 Momentum Equations.pdf" class="pill pill-notes" title="Lecture 07 Momentum Equations">Andrew 7</a> <a href="Notes/NotesYeolim2018/4. 08-31 L%2C H and E.pdf" class="pill pill-notes" title="4. 08-31 L, H and E">Yeolim2018 4</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">7</td><td style="border:1px solid #ddd;padding:8px">Review of Linear and Angular Momentum, Kinetic Energy and Work</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_vbraxa3w/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 08 Energy and Work.pdf" class="pill pill-notes" title="Lecture 08 Energy and Work">Andrew 8</a> <a href="Notes/NotesYeolim2018/6. 09-07 Work%2C Power%2C E.pdf" class="pill pill-notes" title="6. 09-07 Work, Power, E">Yeolim2018 6</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">8</td><td style="border:1px solid #ddd;padding:8px">Energy Contd.</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_qsy5i6i5/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">9</td><td style="border:1px solid #ddd;padding:8px">Fixed Points, Stability and Linearization</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_9f2t7h04/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 09 10 Equilibrium and fsolve.pdf" class="pill pill-notes" title="Lecture 09 10 Equilibrium and fsolve">Andrew 9, 10</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">10</td><td style="border:1px solid #ddd;padding:8px">Fixed Points, Stability and LInearization (Contd.)</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_9nk9ku5h/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 09 10 Equilibrium and fsolve.pdf" class="pill pill-notes" title="Lecture 09 10 Equilibrium and fsolve">Andrew 9, 10</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">11</td><td style="border:1px solid #ddd;padding:8px">Equilibrium and Stability</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_qlenb4ut/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">12</td><td style="border:1px solid #ddd;padding:8px">Review of Dynamical Systems, Equilibirum Points, Stability</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_6dzw6e23/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">13</td><td style="border:1px solid #ddd;padding:8px">Two or more particles</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_lanfk84j/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 11 Multiparticle Dynamics.pdf" class="pill pill-notes" title="Lecture 11 Multiparticle Dynamics">Andrew 11</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">14</td><td style="border:1px solid #ddd;padding:8px">Many Particles, Extensive Quantities</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_uip58y4w/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesYeolim2018/7. 09-10 Multi-particle.pdf" class="pill pill-notes" title="7. 09-10 Multi-particle">Yeolim2018 7</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">15</td><td style="border:1px solid #ddd;padding:8px">Angular Momentum of a System</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_ts5ds10c/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesYeolim2018/8. 09-12 Polar Coord%2C H%2CE.pdf" class="pill pill-notes" title="8. 09-12 Polar Coord, H,E">Yeolim2018 8</a> <a href="Notes/NotesYeolim2018/9. 09-14 H and Koenig.pdf" class="pill pill-notes" title="9. 09-14 H and Koenig">Yeolim2018 9</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">16</td><td style="border:1px solid #ddd;padding:8px">Constraints</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_l4u1sccs/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 15 Introduction to Constraints.pdf" class="pill pill-notes" title="Lecture 15 Introduction to Constraints">Andrew 15</a> <a href="Notes/NotesYeolim2018/12 09-21 Intro to Constraints.pdf" class="pill pill-notes" title="12 09-21 Intro to Constraints">Yeolim2018 12</a> <a href="Notes/NotesYeolim2018/13 09-24 Constraints Cont_d.pdf" class="pill pill-notes" title="13 09-24 Constraints Cont_d">Yeolim2018 13</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">17</td><td style="border:1px solid #ddd;padding:8px">Constraints (Contd.), Pendulum by other means</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_c99k6xr4/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 16 Simple Pendulum.pdf" class="pill pill-notes" title="Lecture 16 Simple Pendulum">Andrew 16</a> <a href="Notes/NotesPartial Andrew van Paridon/Lecture 17 Compound Pendulum.pdf" class="pill pill-notes" title="Lecture 17 Compound Pendulum">Andrew 17</a> <a href="Notes/NotesYeolim2018/14. 09-26 Roller coaster%2C Pendulum.pdf" class="pill pill-notes" title="14. 09-26 Roller coaster, Pendulum">Yeolim2018 14</a> <a href="Notes/NotesYeolim2018/15. 09-28 Pendulum cont_d.pdf" class="pill pill-notes" title="15. 09-28 Pendulum cont_d">Yeolim2018 15</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">18</td><td style="border:1px solid #ddd;padding:8px">2D Rigid Body Kinematics</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_k7ywb0xm/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesPartial Andrew van Paridon/Lecture 12 Properties of Rigid Objects.pdf" class="pill pill-notes" title="Lecture 12 Properties of Rigid Objects">Andrew 12</a> <a href="Notes/NotesYeolim2018/16. 10-01 constraints%2C rigid objects.pdf" class="pill pill-notes" title="16. 10-01 constraints, rigid objects">Yeolim2018 16</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">19</td><td style="border:1px solid #ddd;padding:8px">Kinematics (Contd.), Laws of Mechancis</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_201dwwlc/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">20</td><td style="border:1px solid #ddd;padding:8px">"Compound Pendulum" with a moving base</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_p9jqdh01/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesYeolim2018/17. 10-04-rigid obj%2C inv pend.pdf" class="pill pill-notes" title="17. 10-04-rigid obj, inv pend — inverted pendulums of sorts">Yeolim2018 17</a> <a href="Notes/NotesYeolim2018/18. 10-06 Inverted Pend cont_d.pdf" class="pill pill-notes" title="18. 10-06 Inverted Pend cont_d — inverted pendulums of sorts">Yeolim2018 18</a> <a href="Notes/NotesYeolim2018/19. 10-10 Shaken pend Lagr.%2C Double Pend.pdf" class="pill pill-notes" title="19. 10-10 Shaken pend Lagr., Double Pend — inverted pendulums of sorts">Yeolim2018 19</a></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">21</td><td style="border:1px solid #ddd;padding:8px">Inverted Pendulum, Bead on a Wire</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_olfppr5x/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">22</td><td style="border:1px solid #ddd;padding:8px">Falling Cat</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_21jjdym7/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">23</td><td style="border:1px solid #ddd;padding:8px">Falling Cat (Contd.)</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_5al1e29b/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">24</td><td style="border:1px solid #ddd;padding:8px">Double Pendulum</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_usnd7n66/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><span class="muted">—</span></td></tr>
+<tr><td style="border:1px solid #ddd;padding:8px">25</td><td style="border:1px solid #ddd;padding:8px">Double Pendulum (Contd.) Symbolics</td><td style="border:1px solid #ddd;padding:8px"><a class="pill pill-video" href="https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_4wzob105/247509122" target="_blank" rel="noopener">▶ 2020</a></td><td style="border:1px solid #ddd;padding:8px"><a href="Notes/NotesYeolim2018/20. 10-12.pdf" class="pill pill-notes" title="20. 10-12 — double pendulums of sorts">Yeolim2018 20</a> <a href="Notes/NotesYeolim2018/21. 10-15 Double Pend Matlab.pdf" class="pill pill-notes" title="21. 10-15 Double Pend Matlab — double pendulums of sorts">Yeolim2018 21</a> <a href="Notes/NotesYeolim2018/22. 10-17.pdf" class="pill pill-notes" title="22. 10-17 — double pendulums of sorts">Yeolim2018 22</a> <a href="Notes/NotesYeolim2018/23. 10-19 Double Pend Cont_d.pdf" class="pill pill-notes" title="23. 10-19 Double Pend Cont_d — double pendulums of sorts">Yeolim2018 23</a> <a href="Notes/NotesYeolim2018/24. 10-22 Double Pend DAE%2C Non-holo.pdf" class="pill pill-notes" title="24. 10-22 Double Pend DAE, Non-holo — double pendulums of sorts">Yeolim2018 24</a></td></tr>
+</tbody><tfoot><tr><td colspan="4" style="border:none;padding:8px;text-align:center">(17 more rows not shown)</td></tr></tfoot></table></div><script>document.getElementById("itables_eb162c47_5fc6_4145_b287_7e9cb1d76ee9")?.removeAttribute("hidden");document.getElementById("itables_eb162c47_5fc6_4145_b287_7e9cb1d76ee9_fallback")?.setAttribute("hidden", "hidden");</script>
+<link href="https://www.unpkg.com/dt_for_itables@2.5.8/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.8/dt_bundle.js';
+
+    document.querySelectorAll("#itables_eb162c47_5fc6_4145_b287_7e9cb1d76ee9:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {
+          "classes": ["display", "compact", "cell-border", "course-table"],
+          "columnDefs": [{"targets": 0, "width": "3rem"}, {"targets": 1, "width": "34%"}, {"orderable": false, "targets": [2, 3]}],
+          "data_json": "[[1, \"Course Introduction, Kinematics,  Constitutive Laws, Laws of Mechanics\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_wi9bjj83/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2001%20Introduction.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 01 Introduction\\\">Andrew 1</a> <a href=\\\"Notes/NotesYeolim2018/1.%2008-24%20Intro-pos-vel.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"1. 08-24 Intro-pos-vel\\\">Yeolim2018 1</a>\"], [2, \"Particles (Contd.), Forces (Contd.), ODE Solutions\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_9aj5k5eh/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2002%20Particle%20Dynamics.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 02 Particle Dynamics\\\">Andrew 2</a>\"], [3, \"Particle Example, Defining EoM in MATLAB\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_7nnedakq/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2002%20Particle%20Dynamics.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 02 Particle Dynamics\\\">Andrew 2</a> <a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2003%20Animating%20in%20Matlab.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 03 Animating in Matlab\\\">Andrew 3</a> <a href=\\\"Notes/NotesYeolim2018/3.%2008-29%20Particle-Dynamics.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"3. 08-29 Particle-Dynamics\\\">Yeolim2018 3</a>\"], [4, \"Animation of Spring Mass, 2D\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_3n43ajrf/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2003%20Animating%20in%20Matlab.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 03 Animating in Matlab \\u2014 MATLAB, vector products notes\\\">Andrew 3</a> <a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2004%20Vectors%20and%20Dyadics.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 04 Vectors and Dyadics \\u2014 MATLAB, vector products notes\\\">Andrew 4</a>\"], [5, \"Looking at Animations and trying to understand them\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_hnt26lbk/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [6, \"Theorems of Mechanics\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_f4xzy6ks/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2007%20Momentum%20Equations.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 07 Momentum Equations\\\">Andrew 7</a> <a href=\\\"Notes/NotesYeolim2018/4.%2008-31%20L%2C%20H%20and%20E.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"4. 08-31 L, H and E\\\">Yeolim2018 4</a>\"], [7, \"Review of Linear and Angular Momentum, Kinetic Energy and Work\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_vbraxa3w/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2008%20Energy%20and%20Work.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 08 Energy and Work\\\">Andrew 8</a> <a href=\\\"Notes/NotesYeolim2018/6.%2009-07%20Work%2C%20Power%2C%20E.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"6. 09-07 Work, Power, E\\\">Yeolim2018 6</a>\"], [8, \"Energy Contd.\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_qsy5i6i5/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [9, \"Fixed Points, Stability and Linearization\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_9f2t7h04/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2009%2010%20Equilibrium%20and%20fsolve.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 09 10 Equilibrium and fsolve\\\">Andrew 9, 10</a>\"], [10, \"Fixed Points, Stability and LInearization (Contd.)\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_9nk9ku5h/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2009%2010%20Equilibrium%20and%20fsolve.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 09 10 Equilibrium and fsolve\\\">Andrew 9, 10</a>\"], [11, \"Equilibrium and Stability\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_qlenb4ut/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [12, \"Review of Dynamical Systems, Equilibirum Points, Stability\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_6dzw6e23/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [13, \"Two or more particles\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_lanfk84j/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2011%20Multiparticle%20Dynamics.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 11 Multiparticle Dynamics\\\">Andrew 11</a>\"], [14, \"Many Particles, Extensive Quantities\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_uip58y4w/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesYeolim2018/7.%2009-10%20Multi-particle.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"7. 09-10 Multi-particle\\\">Yeolim2018 7</a>\"], [15, \"Angular Momentum of a System\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_ts5ds10c/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesYeolim2018/8.%2009-12%20Polar%20Coord%2C%20H%2CE.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"8. 09-12 Polar Coord, H,E\\\">Yeolim2018 8</a> <a href=\\\"Notes/NotesYeolim2018/9.%2009-14%20H%20and%20Koenig.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"9. 09-14 H and Koenig\\\">Yeolim2018 9</a>\"], [16, \"Constraints\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_l4u1sccs/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2015%20Introduction%20to%20Constraints.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 15 Introduction to Constraints\\\">Andrew 15</a> <a href=\\\"Notes/NotesYeolim2018/12%2009-21%20Intro%20to%20Constraints.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"12 09-21 Intro to Constraints\\\">Yeolim2018 12</a> <a href=\\\"Notes/NotesYeolim2018/13%2009-24%20Constraints%20Cont_d.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"13 09-24 Constraints Cont_d\\\">Yeolim2018 13</a>\"], [17, \"Constraints (Contd.), Pendulum by other means\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_c99k6xr4/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2016%20Simple%20Pendulum.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 16 Simple Pendulum\\\">Andrew 16</a> <a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2017%20Compound%20Pendulum.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 17 Compound Pendulum\\\">Andrew 17</a> <a href=\\\"Notes/NotesYeolim2018/14.%2009-26%20Roller%20coaster%2C%20Pendulum.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"14. 09-26 Roller coaster, Pendulum\\\">Yeolim2018 14</a> <a href=\\\"Notes/NotesYeolim2018/15.%2009-28%20Pendulum%20cont_d.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"15. 09-28 Pendulum cont_d\\\">Yeolim2018 15</a>\"], [18, \"2D Rigid Body Kinematics\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_k7ywb0xm/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesPartial%20Andrew%20van%20Paridon/Lecture%2012%20Properties%20of%20Rigid%20Objects.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"Lecture 12 Properties of Rigid Objects\\\">Andrew 12</a> <a href=\\\"Notes/NotesYeolim2018/16.%2010-01%20constraints%2C%20rigid%20objects.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"16. 10-01 constraints, rigid objects\\\">Yeolim2018 16</a>\"], [19, \"Kinematics (Contd.), Laws of Mechancis\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_201dwwlc/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [20, \"\\\"Compound Pendulum\\\" with a moving base\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_p9jqdh01/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesYeolim2018/17.%2010-04-rigid%20obj%2C%20inv%20pend.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"17. 10-04-rigid obj, inv pend \\u2014 inverted pendulums of sorts\\\">Yeolim2018 17</a> <a href=\\\"Notes/NotesYeolim2018/18.%2010-06%20Inverted%20Pend%20cont_d.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"18. 10-06 Inverted Pend cont_d \\u2014 inverted pendulums of sorts\\\">Yeolim2018 18</a> <a href=\\\"Notes/NotesYeolim2018/19.%2010-10%20Shaken%20pend%20Lagr.%2C%20Double%20Pend.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"19. 10-10 Shaken pend Lagr., Double Pend \\u2014 inverted pendulums of sorts\\\">Yeolim2018 19</a>\"], [21, \"Inverted Pendulum, Bead on a Wire\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_olfppr5x/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [22, \"Falling Cat\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_21jjdym7/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [23, \"Falling Cat (Contd.)\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_5al1e29b/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [24, \"Double Pendulum\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_usnd7n66/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [25, \"Double Pendulum (Contd.) Symbolics\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_4wzob105/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<a href=\\\"Notes/NotesYeolim2018/20.%2010-12.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"20. 10-12 \\u2014 double pendulums of sorts\\\">Yeolim2018 20</a> <a href=\\\"Notes/NotesYeolim2018/21.%2010-15%20Double%20Pend%20Matlab.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"21. 10-15 Double Pend Matlab \\u2014 double pendulums of sorts\\\">Yeolim2018 21</a> <a href=\\\"Notes/NotesYeolim2018/22.%2010-17.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"22. 10-17 \\u2014 double pendulums of sorts\\\">Yeolim2018 22</a> <a href=\\\"Notes/NotesYeolim2018/23.%2010-19%20Double%20Pend%20Cont_d.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"23. 10-19 Double Pend Cont_d \\u2014 double pendulums of sorts\\\">Yeolim2018 23</a> <a href=\\\"Notes/NotesYeolim2018/24.%2010-22%20Double%20Pend%20DAE%2C%20Non-holo.pdf\\\" class=\\\"pill pill-notes\\\" title=\\\"24. 10-22 Double Pend DAE, Non-holo \\u2014 double pendulums of sorts\\\">Yeolim2018 24</a>\"], [26, \"Double Pendulum (Contd.): DAE, Lagrange\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_0ugy15nb/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [27, \"Lagrange on Computer, Bead on Wire\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_u2i5c07k/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [28, \"Bead on wire (contd.)\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_map7n37w/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [29, \"Time Varying Basis Vectors\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_ie43ouas/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [30, \"Moving Frames (contd.)\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_wz94y6mh/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [31, \"Non holonomic motion\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_hwec6rp3/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [32, \"Lagrange review w/ MATLAB\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_71p9zjfp/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [33, \"AMB Review\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_fkcdal1t/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [34, \"Lagrange w/ 3D forces\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_7hifnqf2/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [35, \"Rotation (contd.)\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_57185pvm/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [36, \"Linear functions, dynamics, matrices\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_n4m2tyv5/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [37, \"Small rotations, angular velocity, angular momentum\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_wx4xxrfd/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [38, \"AMB -> EoM\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_k2nx0mjn/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [39, \"Moment of Inertia, Ang.Mom., Ang.Vel.\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_tc5ksyyp/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [40, \"Energy (contd.)\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_qsy5i6i5/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [41, \"Steady Precession\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_5c3gz4oc/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"], [42, \"Steady Precession, Wobbly Plate\", \"<a class=\\\"pill pill-video\\\" href=\\\"https://vod.video.cornell.edu/media/MAE+4730+5730+Lecture/1_1vyuw64v/247509122\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">\\u25b6 2020</a>\", \"<span class=\\\"muted\\\">\\u2014</span>\"]]",
+          "layout": {"bottomEnd": "paging", "bottomStart": "info", "topEnd": "search", "topStart": "pageLength"},
+          "lengthMenu": [[25, 50, -1], [25, 50, "All"]],
+          "order": [[0, "asc"]],
+          "scrollX": true,
+          "style": {"caption-side": "bottom", "margin": "0", "table-layout": "auto", "width": "auto"},
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Lec</th>\n      <th>Lecture</th>\n      <th>Video</th>\n      <th>Notes</th>\n    </tr>\n  </thead></table>",
+          "text_in_header_can_be_selected": true
+        };
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>About these materials
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Videos are the Cornell recordings of <strong>MAE 4730/5730</strong>. The note sets are student-taken notes from different offerings, so they cover different subsets of the syllabus — a lecture may have notes from one set, both, or neither.</p>
+<ul>
+<li><strong>Andrew</strong> — <code>NotesPartial Andrew van Paridon</code> (15 lecture links)</li>
+<li><strong>Yeolim2018</strong> — <code>NotesYeolim2018</code> (20 lecture links)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/suraj1102\.github\.io\/DynamicsSimWebsite\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Dynamics &amp; Simulation · Prof.&nbsp;Andy Ruina · Plaksha University</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

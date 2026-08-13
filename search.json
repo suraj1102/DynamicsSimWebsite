@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "outline.html",
+    "href": "outline.html",
+    "title": "Course Outline",
+    "section": "",
+    "text": "AKA Intermediate Dynamics (ME 4730/5730 on ruina.org).\nInstructor: Prof. Andy Ruina\n\n\nThe course emphasizes the classical dynamics of single- and multi-degree-of-freedom systems made up of particles, rigid-objects in 2 and 3 special dimensions. The course emphasizes finding equations of motion, solving them analytically (if possible) and numerically; and graphical presentation of solutions, including animations and simulations.\nThis will be taught in three different ways: 1. Newton Euler – minimal coordinates 2. Newton Euler – maximal coordinates 3. Lagrangian\n\n\n\n\nThe student will be able to find the governing equations of motion for a variety of dynamic mechanical systems consisting of particles and rigid objects that might interact with various standard connections (e.g., strings, springs, hinges, rolling, surface sliding) and forces (e.g., gravity, friction, fluid drag).\nThe student will be able to solve the simple cases by hand, solve the more complex cases with numerical integration (Matlab), graphically represent the results, including animations.\nThe student will be able to check the reasonableness of the results using extreme cases and Laws of Conservation (momentum, angular momentum and energy).\nThe student will be able to use principles of Lagrangian mechanics to develop the same governing equations as above for simple conservative systems.\nThe student will be able to formulate, setup, numerically solve, and interpret the equations and solutions of a 3D rigid object rotating in space.\n\n\n\n\n\nA book on Dynamics at a higher level than Ruina and Pratap, e.g. Greenwood.\nDennis Bernstein’s online book. Bernstein is compulsive about clear notation for reference frames etc. (Write to author, no public link.)\nMurray, Li and Sastry, A Matematical Introduction to Robotic Manipulation, 1994. Another rather formal approach.\nDave Baraff’s Physically based modeling notes.\nDave Block’s out-of-print book on tensors “A vector is a vector.” (H.D. Block, Introduction to tensor analysis (pdf))\nSavransky’s Matlab stuff for rotations.\n\n\n\n\nThe grading is divided into:\n\nHomework: 50%\n\nTo be submitted weekly, late submissions will be discarded towards the student’s grading.\n\nViva 1: 25%\n\n30-minute viva based entirely on your homework. If the student has done all the homework, watched the lectures, and spent at least their 4.5 hours/week on the course, they will do well.\n\nViva 2: 25%\n\n30-minute viva based entirely on your homework. If the student has done all the homework, watched the lectures, and spent at least their 4.5 hours/week on the course, they will do well.\n\n\n\n\n\nThe lecture list is maintained live on the Lectures page, along with the recording and lecture-note links for each one. Students are expected to watch at least two lectures per week."
+  },
+  {
+    "objectID": "outline.html#course-overview",
+    "href": "outline.html#course-overview",
+    "title": "Course Outline",
+    "section": "",
+    "text": "The course emphasizes the classical dynamics of single- and multi-degree-of-freedom systems made up of particles, rigid-objects in 2 and 3 special dimensions. The course emphasizes finding equations of motion, solving them analytically (if possible) and numerically; and graphical presentation of solutions, including animations and simulations.\nThis will be taught in three different ways: 1. Newton Euler – minimal coordinates 2. Newton Euler – maximal coordinates 3. Lagrangian"
+  },
+  {
+    "objectID": "outline.html#learning-outcomes",
+    "href": "outline.html#learning-outcomes",
+    "title": "Course Outline",
+    "section": "",
+    "text": "The student will be able to find the governing equations of motion for a variety of dynamic mechanical systems consisting of particles and rigid objects that might interact with various standard connections (e.g., strings, springs, hinges, rolling, surface sliding) and forces (e.g., gravity, friction, fluid drag).\nThe student will be able to solve the simple cases by hand, solve the more complex cases with numerical integration (Matlab), graphically represent the results, including animations.\nThe student will be able to check the reasonableness of the results using extreme cases and Laws of Conservation (momentum, angular momentum and energy).\nThe student will be able to use principles of Lagrangian mechanics to develop the same governing equations as above for simple conservative systems.\nThe student will be able to formulate, setup, numerically solve, and interpret the equations and solutions of a 3D rigid object rotating in space."
+  },
+  {
+    "objectID": "outline.html#recommended-resources",
+    "href": "outline.html#recommended-resources",
+    "title": "Course Outline",
+    "section": "",
+    "text": "A book on Dynamics at a higher level than Ruina and Pratap, e.g. Greenwood.\nDennis Bernstein’s online book. Bernstein is compulsive about clear notation for reference frames etc. (Write to author, no public link.)\nMurray, Li and Sastry, A Matematical Introduction to Robotic Manipulation, 1994. Another rather formal approach.\nDave Baraff’s Physically based modeling notes.\nDave Block’s out-of-print book on tensors “A vector is a vector.” (H.D. Block, Introduction to tensor analysis (pdf))\nSavransky’s Matlab stuff for rotations."
+  },
+  {
+    "objectID": "outline.html#grading",
+    "href": "outline.html#grading",
+    "title": "Course Outline",
+    "section": "",
+    "text": "The grading is divided into:\n\nHomework: 50%\n\nTo be submitted weekly, late submissions will be discarded towards the student’s grading.\n\nViva 1: 25%\n\n30-minute viva based entirely on your homework. If the student has done all the homework, watched the lectures, and spent at least their 4.5 hours/week on the course, they will do well.\n\nViva 2: 25%\n\n30-minute viva based entirely on your homework. If the student has done all the homework, watched the lectures, and spent at least their 4.5 hours/week on the course, they will do well."
+  },
+  {
+    "objectID": "outline.html#lecture-schedule",
+    "href": "outline.html#lecture-schedule",
+    "title": "Course Outline",
+    "section": "",
+    "text": "The lecture list is maintained live on the Lectures page, along with the recording and lecture-note links for each one. Students are expected to watch at least two lectures per week."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dynamics & Simulation",
+    "section": "",
+    "text": "Welcome. This site collects everything you need for the course: the lecture recordings, student lecture notes, the homework problem set, and the solutions that exist for it.\nInstructor: Prof. Andy Ruina · taught at Plaksha University using the Cornell lecture recordings.\n42 lectures · 61 homework problems · 2 sets of lecture notes"
+  },
+  {
+    "objectID": "index.html#where-to-go",
+    "href": "index.html#where-to-go",
+    "title": "Dynamics & Simulation",
+    "section": "Where to go",
+    "text": "Where to go\n\n\nCourse Outline\nWhat the course covers, the learning outcomes, recommended reading, and how you are graded.\n\n\nLectures\nEvery lecture with its recording and any student notes covering it. Sortable and searchable.\n\n\nHomework\nThe combined problem set (deep-linked per problem), solutions where available, and the grading/submission policy."
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Dynamics & Simulation",
+    "section": "Getting started",
+    "text": "Getting started\n\nRead the Course Outline — in particular the grading split.\nSkim the homework policy before your first submission.\nWork through the Lectures at roughly two per week, doing the matching homework as you go.\n\n\n\n\n\n\n\nTip\n\n\n\nSolutions marked ⚠ have not been reviewed by the instructor. Treat them as a hint or a cross-check, not as a model answer."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the course site for Dynamics & Simulation (AKA Intermediate Dynamics, ME 4730/5730), taught by Prof. Andy Ruina at Plaksha University, reusing the Cornell lecture recordings.\nThe site is a static Quarto website. Everything on the Lectures and Homework pages is generated at build time from a single spreadsheet plus the folders of PDFs — there is no database and no backend."
+  },
+  {
+    "objectID": "about.html#how-to-update-this-site",
+    "href": "about.html#how-to-update-this-site",
+    "title": "About",
+    "section": "How to update this site",
+    "text": "How to update this site\nAdding a year of videos, a new set of lecture notes, or a new set of solutions is a spreadsheet + folder change. It should never need a code change.\n\n1. Edit Dynamics&Sim-MasterSheet.xlsx\nThis file is the source of truth. Two sheets:\nLectures — one row per lecture.\n\n\n\n\n\n\n\nColumn\nWhat it does\n\n\n\n\nLec No., Name of Lecture\nFixed identity columns.\n\n\nLink (YYYY)\nA set of video links. The label shown on the site is whatever is inside the parentheses. Add a whole new year by adding a new column, e.g. Link (2027). A cell may hold more than one URL.\n\n\nAny other column\nA notes set. The header must match a folder name under Notes/ exactly. Each cell holds the note number(s) covering that lecture.\n\n\n\nNotes cells accept 7, 16, 17, or 03, 04 -&gt; some commentary (the trailing commentary becomes a tooltip). Leave a cell blank for “no notes”.\nHomeworks — one row per problem.\n\n\n\n\n\n\n\nColumn\nWhat it does\n\n\n\n\nHomework No. (Plaksha Doc)\nFixed identity column. Must match the problem numbering inside the combined homework PDF.\n\n\nDone Last Time (...)\nUsage history — y or n. Add another column, e.g. Done Last Time (2027 Plaksha), to track another offering.\n\n\nAny other column\nA solutions set. The header must match a folder name under Homework/ exactly. Each cell holds the solution code, e.g. Q01.\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nExcel sometimes autocorrects an entry like 9, 10 into a date. If it does, format the cell as Text and retype the value — otherwise the build will warn and skip that cell.\n\n\n\n\n2. Add the matching folder\nFor a new notes or solutions set, create a folder under Notes/ or Homework/ named exactly like the new column header, and drop the files in it.\n\nNotes files are matched by their leading number: 7. Whatever.pdf, 07 Whatever.pdf and Lecture 07 Whatever.pdf all resolve to note 7. One file can cover several notes (Lecture 09 10 ....pdf).\nSolution files are matched by their code prefix: Q01...pdf. A solution may live in a same-named subfolder alongside supporting .m/.png files, which get listed with it.\nA filename or folder containing any of the keywords below is flagged with a ⚠ “not instructor-reviewed” badge. Punctuation and capitalisation are ignored when matching, so Not Approved and NotApproved both count. Edit UNAPPROVED_KEYWORDS at the top of scripts/build_data.py to change the list — this page reads it from there, so it cannot go stale:\nNotApproved, NotYetApproved, NotYetFinallyApproved, NonFinalized, NotAndyApproved, NotAndyAproved, DamnGood\nAnything left over in a solutions folder that no row references is still published, under “Other materials” on the Homework page.\n\n\n\n3. Render locally to check\npip install -r requirements.txt\nquarto render\nThe pre-render step regenerates _data/ and prints warnings for anything it could not resolve — an unparseable cell, a missing note file, a solution code with no matching PDF. Read those warnings; they are how you catch typos.\nUse quarto preview for a live-reloading local copy.\n\n\n4. Commit and push\ngit add -A && git commit -m \"Update course materials\" && git push\nGitHub Actions rebuilds and redeploys the site automatically on every push to main."
+  },
+  {
+    "objectID": "about.html#how-it-fits-together",
+    "href": "about.html#how-it-fits-together",
+    "title": "About",
+    "section": "How it fits together",
+    "text": "How it fits together\n\nscripts/build_data.py — pre-render step. Reads the spreadsheet, scans Notes/ and Homework/, resolves every reference to a real file, works out which page of the combined PDF each problem starts on, and writes JSON into _data/.\nscripts/coursesite.py — small helpers the pages use to turn that JSON into links and badges.\nlectures.qmd / homework.qmd — read the JSON and render it with itables, which gives client-side sorting, searching and paging on a fully static page.\n_data/ and files/ are generated on every render and are not checked in.\n\nThe site is intentionally public — there is no login."
+  },
+  {
+    "objectID": "homework.html",
+    "href": "homework.html",
+    "title": "Homework",
+    "section": "",
+    "text": "All problems live in a single combined problem set — the Problem link opens that PDF at the right page. Solutions, where a set exists for a problem, are linked alongside. A ⚠ marks a solution that has not been reviewed by the instructor: use it as a hint, not as a model answer.\nLoading ITables v2.9.1 from the internet...\n        (need help?)\n      \n    \n  \n\n    \n      🔒ⓘNo.\n      Problem\n      Assigned\n      Solutions\n    \n1Problem 1✓ 2025 Plaksha2017 · Q01\n2Problem 2✓ 2025 Plaksha—\n3Problem 3✓ 2025 Plaksha2017 · Q02\n4Problem 4✓ 2025 Plaksha—\n5Problem 5✓ 2025 Plaksha2017 · Q03\n6Problem 6✓ 2025 Plaksha—\n7Problem 7✓ 2025 Plaksha—\n8Problem 8✓ 2025 Plaksha2017 · Q04\n9Problem 9✓ 2025 Plaksha2017 · Q05\n10Problem 10✓ 2025 Plaksha2017 · Q06\n11Problem 11✓ 2025 Plaksha2017 · Q07\n12Problem 12✓ 2025 Plaksha2017 · Q08\n13Problem 13✓ 2025 Plaksha—\n14Problem 14✓ 2025 Plaksha2017 · Q09\n15Problem 15✓ 2025 Plaksha2017 · Q10\n16Problem 16✓ 2025 Plaksha2017 · Q11\n17Problem 17✓ 2025 Plaksha2017 · Q12\n18Problem 18✓ 2025 Plaksha2017 · Q13\n19Problem 19✓ 2025 Plaksha2017 · Q14\n20Problem 20✓ 2025 Plaksha2017 · Q16\n21Problem 21✓ 2025 Plaksha2017 · Q17\n22Problem 22✓ 2025 Plaksha2017 · Q22\n23Problem 23✓ 2025 Plaksha2017 · Q19\n24Problem 24○ 2025 Plaksha2017 · Q20\n25Problem 25✓ 2025 Plaksha2017 · Q21\n(36 more rows not shown)"
+  },
+  {
+    "objectID": "homework.html#homework-policy",
+    "href": "homework.html#homework-policy",
+    "title": "Homework",
+    "section": "Homework policy",
+    "text": "Homework policy\n\nDownload the policy (PDF)\n\n\n\n\nYour browser cannot display embedded PDFs. Open the homework policy instead."
+  },
+  {
+    "objectID": "homework.html#other-materials-in-the-solution-sets",
+    "href": "homework.html#other-materials-in-the-solution-sets",
+    "title": "Homework",
+    "section": "Other materials in the solution sets",
+    "text": "Other materials in the solution sets\nThese files sit in the solution folders but are not referenced by any problem number in the master sheet — old exam questions, extra write-ups and the like. They are listed here so nothing gets lost.\nSolutions (2017) — 18 file(s)\n\n\nAaronSondoval3DSolutions\n\n\nFA12 Exam Q_MAE57304730_NotApproved ⚠\n\n\nQ Exam question 2 page 3- Not yet finally approved ⚠\n\n\nQ15_MAE57304730_F17\n\n\nQ18_MAR57304730_F17\n\n\nQ2p41Qexam_MAE57304730_F17_NotYetApproved ⚠\n\n\nQ30_MAE57304730_F17\n\n\nQ31_MAE57304730_F17\n\n\nQ32_MAE57304730_F17\n\n\nQ33_MAE57304730_F17\n\n\nQ35_MAE57304730_F17\n\n\nQ39_MAE57304730_F17\n\n\nQ40_MAE57304730_F17\n\n\nQ42_MAE57304730_F17 _NotYetApproved ⚠\n\n\nQ43_MAE57304730_F17_NotAndyApproved ⚠\n\n\nQ45_MAE57304730_F17_NotAndyAproved ⚠\n\n\nQExam_1_2000_MAE57304730_F17_NotAndyApproved ⚠\n\n\nQExam_1_pg30_3_NotYetApproved ⚠"
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Lectures",
+    "section": "",
+    "text": "Every row links to the recorded lecture video and to whichever sets of student lecture notes cover that lecture. Use the search box to filter by topic, and click a column header to sort.\n\n\n\n\n  \n    \n      \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n        Loading ITables v2.9.1 from the internet...\n        (need help?)\n      \n    \n  \n\n    \n      🔒ⓘLec\n      Lecture\n      Video\n      Notes\n    \n1Course Introduction, Kinematics,  Constitutive Laws, Laws of Mechanics▶ 2020Andrew 1 Yeolim2018 1\n2Particles (Contd.), Forces (Contd.), ODE Solutions▶ 2020Andrew 2\n3Particle Example, Defining EoM in MATLAB▶ 2020Andrew 2 Andrew 3 Yeolim2018 3\n4Animation of Spring Mass, 2D▶ 2020Andrew 3 Andrew 4\n5Looking at Animations and trying to understand them▶ 2020—\n6Theorems of Mechanics▶ 2020Andrew 7 Yeolim2018 4\n7Review of Linear and Angular Momentum, Kinetic Energy and Work▶ 2020Andrew 8 Yeolim2018 6\n8Energy Contd.▶ 2020—\n9Fixed Points, Stability and Linearization▶ 2020Andrew 9, 10\n10Fixed Points, Stability and LInearization (Contd.)▶ 2020Andrew 9, 10\n11Equilibrium and Stability▶ 2020—\n12Review of Dynamical Systems, Equilibirum Points, Stability▶ 2020—\n13Two or more particles▶ 2020Andrew 11\n14Many Particles, Extensive Quantities▶ 2020Yeolim2018 7\n15Angular Momentum of a System▶ 2020Yeolim2018 8 Yeolim2018 9\n16Constraints▶ 2020Andrew 15 Yeolim2018 12 Yeolim2018 13\n17Constraints (Contd.), Pendulum by other means▶ 2020Andrew 16 Andrew 17 Yeolim2018 14 Yeolim2018 15\n182D Rigid Body Kinematics▶ 2020Andrew 12 Yeolim2018 16\n19Kinematics (Contd.), Laws of Mechancis▶ 2020—\n20\"Compound Pendulum\" with a moving base▶ 2020Yeolim2018 17 Yeolim2018 18 Yeolim2018 19\n21Inverted Pendulum, Bead on a Wire▶ 2020—\n22Falling Cat▶ 2020—\n23Falling Cat (Contd.)▶ 2020—\n24Double Pendulum▶ 2020—\n25Double Pendulum (Contd.) Symbolics▶ 2020Yeolim2018 20 Yeolim2018 21 Yeolim2018 22 Yeolim2018 23 Yeolim2018 24\n(17 more rows not shown)\n\n\n\n\n\n\n\n\n\n\nNoteAbout these materials\n\n\n\n\n\nVideos are the Cornell recordings of MAE 4730/5730. The note sets are student-taken notes from different offerings, so they cover different subsets of the syllabus — a lecture may have notes from one set, both, or neither.\n\nAndrew — NotesPartial Andrew van Paridon (15 lecture links)\nYeolim2018 — NotesYeolim2018 (20 lecture links)"
+  }
+]
