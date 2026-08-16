@@ -16,10 +16,16 @@ other = S.load("other_materials")
 meta = S.load("meta")
 ```
 
-All problems live in a single combined problem set — the **Problem** link opens
-that PDF at the right page. Solutions, where a set exists for a problem, are
-linked alongside. A ⚠ marks a solution that has **not** been reviewed by the
-instructor: use it as a hint, not as a model answer.
+Homeworks are worth *50%* of your grade and are due **Tuesday 11 PM** every week. A late submission is worth zero points.
+
+You are expected to put roughly **4.5 hours a week** into these problems, and to
+evaluate each other's effort claims — see [Self-Policing](outline.qmd#self-policing)
+in the course outline.
+
+You can also checkout [Jia's Homework Solutions](https://github.com/bhargavajia/Dynamics-Simulation-HW) and [Tanay's Homework Solutions](https://github.com/tanayrs/IntermediateDynamics) from the Plaksha 2025 version of this course. The same problems have been prescribed to the Plaksha 2026, some changes maybe done as the course continues.
+
+[Self-Policing](outline.qmd#self-policing)
+
 
 ```{python}
 #| echo: false
@@ -96,3 +102,5 @@ for label, items in other.items():
     blocks.append('<ul class="other-materials">' + "".join(lis) + "</ul>\n")
 print("\n".join(blocks) if blocks else "_Nothing unmapped — every file is linked from the table above._")
 ```
+
+A ⚠ marks a solution that has **not** been reviewed by the instructor: use it as a hint, not as a model answer.

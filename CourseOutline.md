@@ -32,8 +32,35 @@ This will be taught in three different ways:
 The grading is divided into:
 
 - **Homework: 50%**
-  - To be submitted weekly, late submissions will be discarded towards the student's grading.
+  - To be submitted weekly, late submissions will be discarded towards the
+    student's grading.
+  - Best 12/15 homeworks will be considers i.e. you can drop 3 homeworks.
+  - Record how much time you spend on your homeworks.
+  - _Homeworks are due **Tuesday 11 PM**_
 - **Viva 1: 25%**
-  - 30-minute viva based entirely on your homework. If the student has done all the homework, watched the lectures, and spent at least their 4.5 hours/week on the course, they will do well.
+  - 30-minute viva based entirely on your homework. If the student has done all
+    the homework, watched the lectures, and spent at least their 4.5 hours/week
+    on the course, they will do well.
 - **Viva 2: 25%**
-  - 30-minute viva based entirely on your homework. If the student has done all the homework, watched the lectures, and spent at least their 4.5 hours/week on the course, they will do well.
+  - 30-minute viva based entirely on your homework. If the student has done all
+    the homework, watched the lectures, and spent at least their 4.5 hours/week
+    on the course, they will do well.
+- **Attendance: %TBD**
+  - Attendance for our weekly discussion.
+
+## Self-Policing {#self-policing}
+For Plaksha 2026 students:
+
+Students should self police each other and make sure they are watching the
+lectures and putting in the required number of hours into their homework, every
+week.
+
+You are expected to put in 2.5 hours/credit/week into this course. That is 7.5
+hours of effort per week, plus we have missed a week so it's more about 8
+hours/week, Subtracting the 2 hours of lectures and an hour of discussion, that
+leaves you with 4.5 hours + a little bit more to do your homeworks.
+
+Each person should evaluate someone else's claims on *effort* in homeworks, and
+whether they have watched the lectures or not. 
+
+Meher Sidhu is appointed as the class' police officer but this is on all of you.
