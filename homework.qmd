@@ -19,13 +19,32 @@ meta = S.load("meta")
 Homeworks are worth *50%* of your grade and are due **Tuesday 11 PM** every week. A late submission is worth zero points.
 
 You are expected to put roughly **4.5 hours a week** into these problems, and to
-evaluate each other's effort claims — see [Self-Policing](outline.qmd#self-policing)
-in the course outline.
+evaluate each other's effort claims.
 
 You can also checkout [Jia's Homework Solutions](https://github.com/bhargavajia/Dynamics-Simulation-HW) and [Tanay's Homework Solutions](https://github.com/tanayrs/IntermediateDynamics) from the Plaksha 2025 version of this course. The same problems have been prescribed to the Plaksha 2026, some changes maybe done as the course continues.
 
 [Self-Policing](outline.qmd#self-policing)
 
+## Plaksha 2026 - Homework Schedule
+
+### Week 1 (week two really as we are behind a week) - 11 Aug to 18 Aug
+
+Problems 1 - 3
+Corresponding to Lectures 1 and 2
+Submission link [here](https://forms.cloud.microsoft/r/84jaZQRx24) closes at 11 pm.
+
+### Week 2 - 18 Aug to 25 Aug
+Catch up on last week's homework and:
+
+Corresponding lectures: 3-4
+- Problem 4. Cross product: geometry vs components
+    - is a learning / curiosity thing, read up the mentioned Ruina&Pratap exert
+- Problem 5. Read up 
+  - do all the readings to understand FBDs and other prelims
+- Problem 6. Spring and Mass (2D)
+- Problem 9. Cannon ball
+
+<!-- - Problem 13. Statics vs Dynamics do in pairs with ppl who did last sem vs who didn't -->
 
 ```{python}
 #| echo: false
