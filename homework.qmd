@@ -37,6 +37,7 @@ Submission link [here](https://forms.cloud.microsoft/r/84jaZQRx24) closes at 11 
 Catch up on last week's homework and:
 
 Corresponding lectures: 3-4
+
 - Problem 4. Cross product: geometry vs components
     - is a learning / curiosity thing, read up the mentioned Ruina&Pratap exert
 - Problem 5. Read up 
