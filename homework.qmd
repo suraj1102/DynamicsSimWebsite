@@ -45,6 +45,15 @@ Corresponding lectures: 3-4
 - Problem 6. Spring and Mass (2D)
 - Problem 9. Cannon ball
 
+### Week 3 - 25 Aug to 01 Sep
+
+Corresponding Lectures: Lec 5, Lec 6
+
+- Problem 10. Spring and Mass (2D)
+- Problem 13. Statics vs Dynamics
+    - Pair up with someone who did take Robot Motion, Simulation, Optimisation last semester and solve these problems.
+    - You are welcome to do this on your own too but above is reccommended for both sets of students (who took and did not take robot motion course)
+
 <!-- - Problem 13. Statics vs Dynamics do in pairs with ppl who did last sem vs who didn't -->
 
 ```{python}
