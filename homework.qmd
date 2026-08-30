@@ -49,7 +49,7 @@ Corresponding lectures: 3-4
 
 Corresponding Lectures: Lec 5, Lec 6
 
-- Problem 10. Spring and Mass (2D)
+- Problem 10. Spring and Mass (3D)
 - Problem 13. Statics vs Dynamics
     - Pair up with someone who did take Robot Motion, Simulation, Optimisation last semester and solve these problems.
     - You are welcome to do this on your own too but above is reccommended for both sets of students (who took and did not take robot motion course)
