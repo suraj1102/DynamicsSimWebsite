@@ -54,7 +54,25 @@ Corresponding Lectures: Lec 5, Lec 6
     - Pair up with someone who did take Robot Motion, Simulation, Optimisation last semester and solve these problems.
     - You are welcome to do this on your own too but above is reccommended for both sets of students (who took and did not take robot motion course)
 
-<!-- - Problem 13. Statics vs Dynamics do in pairs with ppl who did last sem vs who didn't -->
+### Week 4 - 01 Sep to 08 Sep
+
+Corresponding to lec 7, lec 8
+- Catch up on everything.
+
+### Week 5 and onwards
+
+Corresponding to lec 9, lec 10
+
+Andy: 
+There should be work for you to do all the time. 
+Your job is not to finish all of the work and problems but to keep your mind occupied and learn from the problems. 
+The homework problems have subproblems which are thought provoking and education if you do them.
+You should always be catching up and doing the problems and putting in the time you are supposed to be putting in.
+If you don't find the prescribed problems educational, move on and do the next problems even if they are / will not be prescribed - just do something you'll learn from.
+Some of the problems also have subparts whose solutions and techniques will be discussed later in the course lectures (homework doc is evolving, lectures are from 2020.), try to think about those, look them up, read about it, or find the corresponding lecture and watch that.
+
+If you need prescribed problems: do problems 11, 14, 15.
+
 
 ```{python}
 #| echo: false
