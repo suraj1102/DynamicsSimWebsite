@@ -73,6 +73,9 @@ Some of the problems also have subparts whose solutions and techniques will be d
 
 If you need prescribed problems: do problems 11, 14, 15.
 
+### Week 6
+Lectures : 11, 12
+Look at Plaksha 2025 assigned homeworks for plaksha 2025 and continue doing previously assigned problems
 
 ```{python}
 #| echo: false
