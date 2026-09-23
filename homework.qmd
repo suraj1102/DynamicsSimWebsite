@@ -77,6 +77,21 @@ If you need prescribed problems: do problems 11, 14, 15.
 Lectures : 11, 12
 Look at Plaksha 2025 assigned homeworks for plaksha 2025 and continue doing previously assigned problems
 
+### Week 7 - 22nd Sep to 29th Sep 
+Lectures: 13, 14
+
+Problems that we didn't cover in past weeks, should be very simple as you've already done this in other problems:
+- P.07 Simple animation of a shape
+- P.08 Simplest dynamics with polar coordinates
+
+Problem related to lecture 7 and 8:
+- P.12 Cannon ball 2
+
+That completes all problems 1-15.
+
+Other problems to do:
+- P.22 Simple Pendulum
+
 ```{python}
 #| echo: false
 df = pd.DataFrame(
