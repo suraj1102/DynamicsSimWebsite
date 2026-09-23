@@ -13,6 +13,7 @@ project:
     - Notes/
     - Homework/
     - files/
+    - TestsExams/
     - robots.txt
     # LaTeX sources and build assets are never linked from the site.
     - "!Homework/HomeworkAssignments/HomeworkFigs/**"
@@ -32,6 +33,8 @@ website:
         text: Lectures
       - href: homework.qmd
         text: Homework
+      - href: exams.qmd
+        text: Exams
       - href: about.qmd
         text: About
   page-footer:

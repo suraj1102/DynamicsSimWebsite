@@ -1,0 +1,25 @@
+---
+title: "Exams"
+---
+
+Past year exam papers.
+
+```{python}
+#| echo: false
+#| output: asis
+import sys
+from pathlib import Path
+sys.path.insert(0, "scripts")
+import coursesite as S
+
+exams = sorted(Path("TestsExams").glob("*.pdf"), key=lambda p: p.name.lower())
+
+if not exams:
+    print("_No exam papers available yet._")
+else:
+    lines = [
+        f"- {S.link(str(p), p.stem)}"
+        for p in exams
+    ]
+    print("\n".join(lines))
+```
