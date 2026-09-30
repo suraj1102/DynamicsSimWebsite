@@ -92,6 +92,15 @@ That completes all problems 1-15.
 Other problems to do:
 - P.22 Simple Pendulum
 
+### Week 8 - 30th Sep to 6th October
+Lectures: 14, 15
+
+Problems:
+- P.16 Mechanics of two or more particles
+- P. 17 Montgomery’s eight
+- P. 18 Konig’s Theorem
+- P. 19 What means “rate of change of angular momentum” for a SYSTEM of particles?
+
 ```{python}
 #| echo: false
 df = pd.DataFrame(
