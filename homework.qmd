@@ -93,13 +93,23 @@ Other problems to do:
 - P.22 Simple Pendulum
 
 ### Week 8 - 30th Sep to 6th October
-Lectures: 14, 15
+Lectures: 14, 16
 
 Problems:
-- P.16 Mechanics of two or more particles
+- P. 16 Mechanics of two or more particles
 - P. 17 Montgomery’s eight
 - P. 18 Konig’s Theorem
 - P. 19 What means “rate of change of angular momentum” for a SYSTEM of particles?
+
+**MIDSEM WEEK BREAK**
+
+### Week 9 - 30th Sep to 6th October
+Lectures: 17, 18
+
+Problems:
+- P. 20 Two Masses
+- P. 21 Two Masses Constraint
+
 
 ```{python}
 #| echo: false
