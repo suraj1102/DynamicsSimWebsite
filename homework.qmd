@@ -110,6 +110,15 @@ Problems:
 - P. 20 Two Masses
 - P. 21 Two Masses Constraint
 
+### Week 10 - 21st Oct to 27th Oct
+Lectures: 19, 20
+
+Problems:
+- P. 22 Simple Pendulum (should be done before P.23)
+- P. 23 Pendulum Numerics 
+- P. 25. 2D Dumbell
+- P. 29 Inverted Pendulum with Shaking Base
+
 
 ```{python}
 #| echo: false
