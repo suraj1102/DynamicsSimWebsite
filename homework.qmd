@@ -81,7 +81,7 @@ Look at Plaksha 2025 assigned homeworks for plaksha 2025 and continue doing prev
 Lectures: 13, 14
 
 Problems that we didn't cover in past weeks, should be very simple as you've already done this in other problems:
-- P.07 Simple animation of a shape
+- P.07 Simple animation of a shape \
 - P.08 Simplest dynamics with polar coordinates
 
 Problem related to lecture 7 and 8:
@@ -96,9 +96,9 @@ Other problems to do:
 Lectures: 14, 16
 
 Problems:
-- P. 16 Mechanics of two or more particles
-- P. 17 Montgomery’s eight
-- P. 18 Konig’s Theorem
+- P. 16 Mechanics of two or more particles \ 
+- P. 17 Montgomery’s eight \ 
+- P. 18 Konig’s Theorem \ 
 - P. 19 What means “rate of change of angular momentum” for a SYSTEM of particles?
 
 **MIDSEM WEEK BREAK**
@@ -107,17 +107,45 @@ Problems:
 Lectures: 17, 18
 
 Problems:
-- P. 20 Two Masses
+- P. 20 Two Masses \ 
 - P. 21 Two Masses Constraint
 
 ### Week 10 - 21st Oct to 27th Oct
 Lectures: 19, 20
 
 Problems:
-- P. 22 Simple Pendulum (should be done before P.23)
-- P. 23 Pendulum Numerics 
-- P. 25. 2D Dumbell
-- P. 29 Inverted Pendulum with Shaking Base
+- P. 22 Simple Pendulum (should be done before P.23) \
+- P. 23 Pendulum Numerics \
+- P. 25 2D Dumbell \
+- P. 29 Inverted Pendulum with Shaking Base \
+
+### Week 11 - 28th Oct to 3rd Nov
+Lectures: 21, 22 
+
+- P. 26 Rotation with zero angular momemtum \ 
+- P. 30 Bead on parabolic wire \
+- P. 41 Index notation & Einstein summation convention \ 
+
+
+### Week 12 - 4rd Nov to 10th Nov
+Lectures: 23, 24 
+
+- P. 31 Double Pendulum
+- P. 42 Rotations
+
+
+### Week 13 - 11th Nov to 17th Nov
+Lectures: 25, 26 
+
+- P. 39. Two Skates
+
+### Week 14 - 18th Nov to 24th Nov
+Lectures: 27, 28 
+
+### Week 15 - 25th Nov to 1st Dec
+Lectures: 29, 30 
+
+- P. 43 Final computation project
 
 
 ```{python}
