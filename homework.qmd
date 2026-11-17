@@ -145,8 +145,9 @@ Lectures: 27, 28
 ### Week 15 - 25th Nov to 1st Dec
 Lectures: 29, 30 
 
-- P. 43 Final computation project
-
+- P. 43 Final computation project \
+- P. 49 \
+- Any version of 51,52,53 - same problem in 3 different forms
 
 ```{python}
 #| echo: false
